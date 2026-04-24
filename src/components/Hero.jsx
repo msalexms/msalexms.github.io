@@ -51,7 +51,7 @@ export default function Hero() {
             {...fadeUp(0.2)}
             className="text-xs text-[#525252] font-mono mb-6"
           >
-            {`> user@portfolio:~$ cat about.txt`}
+            {`> msalexms@portfolio:~$ cat about.txt`}
           </motion.p>
 
           <motion.p
