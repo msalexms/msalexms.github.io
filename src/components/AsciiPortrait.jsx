@@ -9,7 +9,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 
 const ASCII_CHARS = '@%#*+=-:. ';
 
-export default function AsciiPortrait({ src, alt, width = 280, height = 280 }) {
+export default function AsciiPortrait({ src, alt, width = 320, height = 320 }) {
   const canvasRef = useRef(null);
   const [asciiLines, setAsciiLines] = useState([]);
   const [loaded, setLoaded] = useState(false);
@@ -19,9 +19,8 @@ export default function AsciiPortrait({ src, alt, width = 280, height = 280 }) {
     if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
-    // Reducimos resolución para que los caracteres ASCII sean legibles
-    const cols = 60;
-    const rows = 60;
+    const cols = 50;
+    const rows = 50;
     canvas.width = cols;
     canvas.height = rows;
 
@@ -37,7 +36,6 @@ export default function AsciiPortrait({ src, alt, width = 280, height = 280 }) {
         const r = data[i];
         const g = data[i + 1];
         const b = data[i + 2];
-        // Luminosidad
         const brightness = (r * 0.299 + g * 0.587 + b * 0.114);
         const charIndex = Math.floor((brightness / 255) * (ASCII_CHARS.length - 1));
         line += ASCII_CHARS[charIndex];
@@ -54,9 +52,12 @@ export default function AsciiPortrait({ src, alt, width = 280, height = 280 }) {
     img.onload = () => generateAscii(img);
   }, [src, generateAscii]);
 
+  const fontSize = width / 40;
+  const lineHeight = height / 50;
+
   return (
     <div
-      className="relative overflow-hidden group"
+      className="relative overflow-hidden group cursor-pointer"
       style={{ width, height }}
     >
       {/* Canvas oculto para procesamiento */}
@@ -68,9 +69,10 @@ export default function AsciiPortrait({ src, alt, width = 280, height = 280 }) {
       >
         {loaded ? (
           <pre
-            className="font-mono text-[#a3a3a3] leading-[0.65] select-none"
+            className="font-mono text-[#a3a3a3] select-none"
             style={{
-              fontSize: `${width / 60}px`,
+              fontSize: `${fontSize}px`,
+              lineHeight: `${lineHeight}px`,
               whiteSpace: 'pre',
             }}
           >
@@ -87,6 +89,13 @@ export default function AsciiPortrait({ src, alt, width = 280, height = 280 }) {
         alt={alt}
         className="w-full h-full object-cover object-top transition-opacity duration-500 opacity-0 group-hover:opacity-100"
       />
+
+      {/* Indicador de hover */}
+      <div className="absolute inset-x-0 bottom-0 z-20 flex justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
+        <span className="text-[10px] text-[#525252] bg-[#0a0a0a] px-2 py-1 border-t border-x border-[#262626] select-none">
+          [ hover to reveal ]
+        </span>
+      </div>
     </div>
   );
 }

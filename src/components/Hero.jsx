@@ -39,8 +39,8 @@ export default function Hero() {
             <AsciiPortrait
               src="/perfil.jpeg"
               alt={general.name}
-              width={260}
-              height={260}
+              width={320}
+              height={320}
             />
           </div>
         </motion.div>
@@ -87,7 +87,7 @@ export default function Hero() {
             className="flex flex-col sm:flex-row items-center md:justify-start justify-center gap-4"
           >
             <button
-              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' })}
               className="px-6 py-2 border border-[#262626] text-[#e5e5e5] text-sm font-medium hover:bg-[#262626] transition-colors duration-200"
             >
               {hero.ctaPrimary}

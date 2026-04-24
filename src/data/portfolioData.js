@@ -36,12 +36,12 @@ export const portfolioData = {
   hero: {
     es: {
       greeting: "¡Hola! Soy",
-      ctaPrimary: "Ver Proyectos",
+      ctaPrimary: "Ver Experiencia",
       ctaSecondary: "Contactar",
     },
     en: {
       greeting: "Hello! I'm",
-      ctaPrimary: "View Projects",
+      ctaPrimary: "View Experience",
       ctaSecondary: "Get in Touch",
     },
   },
