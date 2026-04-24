@@ -216,8 +216,8 @@ export const portfolioData = {
         institution: "Universidad Politécnica de Madrid",
         period: { es: "2024 – 2025", en: "2024 – 2025" },
         description: {
-          es: "Formación avanzada en sistemas embebidos, integración de sensores, protocolos de red IoT y arquitectura de edge computing, incluyendo aplicaciones de edge AI.",
-          en: "Advanced training in embedded systems, sensor integration, IoT networking protocols, and edge computing architecture, including edge AI applications.",
+          es: "Formación avanzada en sistemas embebidos, integración de sensores, protocolos de red IoT y arquitectura de edge computing, incluyendo aplicaciones de edge AI. Proyecto final calificado con 9/10.",
+          en: "Advanced training in embedded systems, sensor integration, IoT networking protocols, and edge computing architecture, including edge AI applications. Final project awarded with 9/10.",
         },
       },
     ],

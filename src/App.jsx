@@ -2,8 +2,7 @@
  * App.jsx
  *
  * Componente raíz de la aplicación.
- * Envuelve todo con el LanguageProvider y renderiza las secciones.
- * Incluye inicialización del tema oscuro desde localStorage.
+ * Tema oscuro único, estética OPENCODE retro/ASCII.
  */
 
 import { LanguageProvider } from './context/LanguageContext';
@@ -19,7 +18,7 @@ import Footer from './components/Footer';
 export default function App() {
   return (
     <LanguageProvider>
-      <div className="min-h-screen bg-white dark:bg-slate-900 transition-colors duration-300">
+      <div className="min-h-screen bg-[#0a0a0a] text-[#e5e5e5] font-mono">
         <Header />
         <main>
           <Hero />
