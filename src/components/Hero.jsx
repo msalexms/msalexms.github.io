@@ -42,7 +42,7 @@ export default function Hero() {
               alt={general.name}
               width={320}
               height={320}
-              effect="scan"
+              effect="glitch"
             />
           </div>
         </motion.div>
