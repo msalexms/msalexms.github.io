@@ -1,10 +1,12 @@
 /**
- * Education.jsx — Acento: Esmeralda
+ * Education.jsx
+ *
+ * Educación — lista vertical con bordes, certificaciones cuadradas.
+ * Estética OPENCODE.
  */
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { GraduationCap, Award } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { portfolioData } from '../data/portfolioData';
 
@@ -16,43 +18,49 @@ export default function Education() {
   const isInView = useInView(ref, { once: true, margin: '-50px' });
 
   return (
-    <section id="education" className="py-24 px-6 bg-white dark:bg-slate-900">
+    <section id="education" className="py-24 px-6 bg-[#111111]">
       <div ref={ref} className="max-w-6xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          className="text-4xl font-bold mb-16 text-center text-slate-900 dark:text-white"
+          transition={{ duration: 0.4 }}
+          className="mb-12"
         >
-          {lang === 'es' ? edu.title : edu.enTitle}
-          <span className="block w-16 h-1 bg-emerald-500 mx-auto mt-4 rounded-full" />
-        </motion.h2>
+          <h2 className="text-xs font-medium text-[#525252] uppercase tracking-widest mb-2">
+            05.
+          </h2>
+          <h2 className="text-3xl font-bold text-[#e5e5e5] tracking-tight">
+            {lang === 'es' ? edu.title : edu.enTitle}
+          </h2>
+          <div className="w-full h-px bg-[#262626] mt-6" />
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div>
-            <div className="flex items-center gap-3 mb-8">
-              <GraduationCap size={28} className="text-emerald-500" />
-<h3 className="text-2xl font-bold text-slate-900 dark:text-white">
-                  {lang === 'es' ? 'Formación Académica' : 'Academic Background'}
-                </h3>
+            <div className="mb-8">
+              <h3 className="text-sm font-bold text-[#a3a3a3] uppercase tracking-widest">
+                {lang === 'es' ? 'Formación Académica' : 'Academic Background'}
+              </h3>
+              <div className="w-full h-px bg-[#262626] mt-3" />
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-0">
               {edu.items.map((item, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.5, delay: index * 0.15 }}
-                  className="bg-slate-50 dark:bg-slate-800 p-6 rounded-2xl border-l-4 border-emerald-500"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  className="border-t border-[#262626] py-6"
                 >
-                  <h4 className="text-lg font-semibold text-slate-900 dark:text-white">{item.degree[lang]}</h4>
-                  <p className="text-emerald-600 dark:text-emerald-400 font-medium">
+                  <h4 className="text-base font-semibold text-[#e5e5e5]">{item.degree[lang]}</h4>
+                  <p className="text-sm text-[#a3a3a3] mt-1">
                     {item.institution}
                   </p>
-                  <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                  <p className="text-xs text-[#525252] font-mono uppercase tracking-wider mt-1">
                     {item.period[lang]}
                   </p>
-                  <p className="text-slate-600 dark:text-slate-300 text-sm mt-3">
+                  <p className="text-xs text-[#a3a3a3] mt-3 leading-relaxed">
                     {item.description[lang]}
                   </p>
                 </motion.div>
@@ -61,22 +69,23 @@ export default function Education() {
           </div>
 
           <div>
-            <div className="flex items-center gap-3 mb-8">
-              <Award size={28} className="text-emerald-500" />
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white">{certs[lang].title}</h3>
+            <div className="mb-8">
+              <h3 className="text-sm font-bold text-[#a3a3a3] uppercase tracking-widest">
+                {certs[lang].title}
+              </h3>
+              <div className="w-full h-px bg-[#262626] mt-3" />
             </div>
 
             <div className="flex flex-wrap gap-6 justify-center lg:justify-start">
               {certs.badges.map((badge, index) => (
                 <motion.div
                   key={badge.id}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.4, delay: index * 0.15 }}
-                  whileHover={{ scale: 1.03, y: -4 }}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
                   className="flex flex-col items-center gap-3"
                 >
-                  <div className="bg-white rounded-xl p-3 shadow-md hover:shadow-xl transition-shadow overflow-hidden w-[166px]">
+                  <div className="bg-white border border-[#262626] overflow-hidden w-[166px] hover:border-[#525252] transition-colors duration-200">
                     <iframe
                       src={`https://www.credly.com/embedded_badge/${badge.id}`}
                       width="150"
@@ -84,10 +93,10 @@ export default function Education() {
                       frameBorder="0"
                       scrolling="no"
                       title={`Credly badge ${index + 1}`}
-                      className="block"
+                      className="block mx-auto"
                     />
                   </div>
-                  <p className="text-sm font-semibold text-slate-900 dark:text-white text-center max-w-[166px]">
+                  <p className="text-xs font-medium text-[#a3a3a3] text-center max-w-[166px] leading-tight">
                     {badge[lang].name}
                   </p>
                 </motion.div>

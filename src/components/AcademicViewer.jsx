@@ -1,7 +1,13 @@
+/**
+ * AcademicViewer.jsx
+ *
+ * Visor de TFM/TFG — rediseñado cuadrado, oscuro, minimalista.
+ * Tabs cuadrados, iconos reemplazados por texto ASCII.
+ */
+
 import { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Document, Page, pdfjs } from 'react-pdf';
-import { ChevronLeft, ChevronRight, ZoomIn, ZoomOut, Download } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { portfolioData } from '../data/portfolioData';
 
@@ -42,31 +48,33 @@ export default function AcademicViewer() {
   }
 
   return (
-    <section id="academic" className="py-24 px-6 bg-slate-50 dark:bg-slate-950">
+    <section id="academic" className="py-24 px-6 bg-[#0a0a0a]">
       <div ref={ref} className="max-w-5xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          className="text-center mb-12"
+          transition={{ duration: 0.4 }}
+          className="mb-12"
         >
-          <h2 className="text-4xl font-bold text-slate-900 dark:text-white">
-            {academic.sectionTitle[lang]}
-            <span className="block w-16 h-1 bg-emerald-500 mx-auto mt-4 rounded-full" />
+          <h2 className="text-xs font-medium text-[#525252] uppercase tracking-widest mb-2">
+            04.
           </h2>
-          <p className="text-slate-500 dark:text-slate-400 mt-4 text-lg">
-            {academic.sectionSubtitle[lang]}
-          </p>
+          <h2 className="text-3xl font-bold text-[#e5e5e5] tracking-tight">
+            {academic.sectionTitle[lang]}
+          </h2>
+          <p className="text-sm text-[#525252] mt-2">{academic.sectionSubtitle[lang]}</p>
+          <div className="w-full h-px bg-[#262626] mt-6" />
         </motion.div>
 
-        <div className="flex gap-2 mb-6 justify-center">
+        <div className="flex gap-0 mb-6">
           {academic.documents.map((d) => (
             <button
               key={d.id}
               onClick={() => switchDocument(d.id)}
-              className={`px-6 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 ${
+              className={`px-5 py-2 text-xs font-mono uppercase tracking-wider border transition-colors duration-200 ${
                 activeDoc === d.id
-                  ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/25'
-                  : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700'
+                  ? 'bg-[#262626] text-[#e5e5e5] border-[#525252]'
+                  : 'bg-[#171717] text-[#525252] border-[#262626] hover:text-[#a3a3a3] hover:border-[#525252]'
               }`}
             >
               {d[lang].tabLabel}
@@ -79,100 +87,99 @@ export default function AcademicViewer() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-md mb-8"
+          className="border border-[#262626] bg-[#171717] p-6 mb-8"
         >
-          <p className="text-sm text-emerald-600 dark:text-emerald-400 font-medium mb-1">
+          <p className="text-xs text-[#525252] font-mono uppercase tracking-wider mb-1">
             {doc[lang].title}
           </p>
-          <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
+          <h3 className="text-lg font-semibold text-[#e5e5e5] mb-3">
             {doc[lang].documentTitle}
           </h3>
-          <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+          <p className="text-sm text-[#a3a3a3] leading-relaxed">
             {doc[lang].abstract}
           </p>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.2 }}
-          className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden"
+          transition={{ delay: 0.2, duration: 0.4 }}
+          className="border border-[#262626] bg-[#171717] overflow-hidden"
         >
-          <div className="flex flex-wrap items-center justify-between p-4 border-b dark:border-slate-700 bg-slate-50 dark:bg-slate-800 gap-4">
-            <div className="flex items-center gap-2 text-slate-700 dark:text-slate-200">
+          <div className="flex flex-wrap items-center justify-between p-4 border-b border-[#262626] bg-[#0a0a0a] gap-4">
+            <div className="flex items-center gap-2 text-[#a3a3a3]">
               <button
                 onClick={() => setPageNumber((p) => Math.max(1, p - 1))}
                 disabled={pageNumber <= 1}
-                className="p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                className="px-2 py-1 border border-[#262626] text-xs hover:border-[#525252] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
                 aria-label="Previous page"
               >
-                <ChevronLeft size={20} />
+                [&lt;]
               </button>
-              <span className="text-sm font-medium min-w-[80px] text-center">
+              <span className="text-xs font-mono min-w-[60px] text-center">
                 {pageNumber} / {numPages || '--'}
               </span>
               <button
                 onClick={() => setPageNumber((p) => Math.min(numPages || p, p + 1))}
                 disabled={pageNumber >= numPages}
-                className="p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                className="px-2 py-1 border border-[#262626] text-xs hover:border-[#525252] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
                 aria-label="Next page"
               >
-                <ChevronRight size={20} />
+                [&gt;]
               </button>
             </div>
 
-            <div className="flex items-center gap-2 text-slate-700 dark:text-slate-200">
+            <div className="flex items-center gap-2 text-[#a3a3a3]">
               <button
                 onClick={() => setScale((s) => Math.max(0.5, s - 0.25))}
                 disabled={scale <= 0.5}
-                className="p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                className="px-2 py-1 border border-[#262626] text-xs hover:border-[#525252] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
                 aria-label="Zoom out"
               >
-                <ZoomOut size={20} />
+                [-]
               </button>
-              <span className="text-sm font-medium min-w-[50px] text-center">
+              <span className="text-xs font-mono min-w-[40px] text-center">
                 {Math.round(scale * 100)}%
               </span>
               <button
                 onClick={() => setScale((s) => Math.min(2, s + 0.25))}
                 disabled={scale >= 2}
-                className="p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                className="px-2 py-1 border border-[#262626] text-xs hover:border-[#525252] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
                 aria-label="Zoom in"
               >
-                <ZoomIn size={20} />
+                [+]
               </button>
             </div>
 
             <a
               href={doc.pdfPath}
               download
-              className="flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-sm font-medium transition-colors duration-300"
+              className="flex items-center gap-2 px-4 py-2 border border-[#262626] text-[#e5e5e5] text-xs hover:bg-[#262626] transition-colors duration-200"
             >
-              <Download size={16} />
-              {doc[lang].downloadLabel}
+              [↓] {doc[lang].downloadLabel}
             </a>
           </div>
 
-          <div className="flex justify-center p-8 bg-slate-100 dark:bg-slate-900 min-h-[500px] overflow-auto">
+          <div className="flex justify-center p-8 bg-[#0a0a0a] min-h-[500px] overflow-auto">
             {!pdfError ? (
               <Document
                 file={doc.pdfPath}
                 onLoadSuccess={onDocumentLoadSuccess}
                 onLoadError={onDocumentLoadError}
               >
-                <Page pageNumber={pageNumber} scale={scale} className="shadow-lg" loading="" />
+                <Page pageNumber={pageNumber} scale={scale} className="shadow-none" loading="" />
               </Document>
             ) : (
               <div className="flex flex-col items-center justify-center text-center p-12">
-                <p className="text-lg font-medium mb-2 text-slate-900 dark:text-white">PDF no disponible</p>
-                <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">
+                <p className="text-sm font-medium mb-2 text-[#e5e5e5]">PDF no disponible</p>
+                <p className="text-xs text-[#525252] mb-4">
                   Coloca tu archivo PDF en la carpeta{' '}
-                  <code className="bg-slate-200 dark:bg-slate-700 px-2 py-1 rounded">{doc.pdfPath.replace('/', '')}</code>
+                  <code className="bg-[#171717] border border-[#262626] px-2 py-1">{doc.pdfPath.replace('/', '')}</code>
                 </p>
                 <a
                   href={doc.pdfPath}
                   download
-                  className="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors duration-300"
+                  className="px-4 py-2 border border-[#262626] text-[#e5e5e5] text-xs hover:bg-[#262626] transition-colors duration-200"
                 >
                   {doc[lang].downloadLabel}
                 </a>

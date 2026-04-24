@@ -1,13 +1,12 @@
 /**
  * Header.jsx
  *
- * Navegación sticky con efecto glassmorphism.
- * Acento: Esmeralda (alta legibilidad).
+ * Navegación fija estilo terminal/minimalista.
+ * Estética OPENCODE: sobrio, cuadrado, monoespaciado.
  */
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sun, Moon, Menu, X } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { portfolioData } from '../data/portfolioData';
 
@@ -39,16 +38,15 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-lg'
-          : 'bg-transparent'
+        scrolled ? 'bg-[#0a0a0a]/95 border-b border-[#262626]' : 'bg-transparent'
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <button onClick={() => scrollTo('hero')} className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">
-          <span className="text-emerald-600 dark:text-emerald-400">{'<'}</span>
-          {portfolioData.general[lang].name.split(' ')[0]}
-          <span className="text-emerald-600 dark:text-emerald-400">{'/>'}</span>
+      <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <button
+          onClick={() => scrollTo('hero')}
+          className="text-sm font-bold tracking-tight text-[#e5e5e5] hover:text-[#d4d4d4] transition-colors"
+        >
+          [AMS]
         </button>
 
         <div className="hidden md:flex items-center gap-8">
@@ -56,7 +54,7 @@ export default function Header() {
             <button
               key={link.id}
               onClick={() => scrollTo(link.id)}
-              className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+              className="text-xs font-medium uppercase tracking-widest text-[#a3a3a3] hover:text-[#e5e5e5] transition-colors"
             >
               {link.label}
             </button>
@@ -64,91 +62,52 @@ export default function Header() {
 
           <button
             onClick={toggleLang}
-            className="relative w-14 h-7 rounded-full bg-slate-200 dark:bg-slate-700 transition-colors"
+            className="text-xs font-medium uppercase tracking-widest text-[#a3a3a3] hover:text-[#e5e5e5] transition-colors border border-[#262626] px-3 py-1 hover:border-[#525252]"
             aria-label="Toggle language"
           >
-            <motion.div
-              className="absolute top-1 w-5 h-5 rounded-full bg-white shadow-md flex items-center justify-center"
-              animate={{ left: lang === 'es' ? '4px' : 'calc(100% - 24px)' }}
-              transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-            >
-              {lang === 'es' ? (
-                <span className="text-[10px] font-bold text-emerald-600">ES</span>
-              ) : (
-                <span className="text-[10px] font-bold text-emerald-600">EN</span>
-              )}
-            </motion.div>
+            {lang === 'es' ? 'ES' : 'EN'}
           </button>
-
-          <ThemeToggle />
         </div>
 
-        <button className="md:hidden" onClick={() => setMobileOpen(!mobileOpen)}>
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+        <button
+          className="md:hidden text-[#e5e5e5] border border-[#262626] px-3 py-1 text-xs uppercase tracking-widest hover:border-[#525252] transition-colors"
+          onClick={() => setMobileOpen(!mobileOpen)}
+        >
+          {mobileOpen ? 'CLOSE' : 'MENU'}
         </button>
       </nav>
 
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="md:hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t"
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden bg-[#0a0a0a] border-t border-[#262626]"
           >
             <div className="flex flex-col p-6 gap-4">
               {navLinks.map((link) => (
                 <button
                   key={link.id}
                   onClick={() => scrollTo(link.id)}
-                  className="text-left text-lg font-medium py-2 text-slate-900 dark:text-white"
+                  className="text-left text-sm font-medium uppercase tracking-widest text-[#a3a3a3] hover:text-[#e5e5e5] transition-colors"
                 >
                   {link.label}
                 </button>
               ))}
-              <div className="flex items-center gap-4 pt-4 border-t">
-                <button onClick={toggleLang} className="font-medium">
-                  {lang === 'es' ? '🇪🇸 Español' : '🇬🇧 English'}
+              <div className="flex items-center gap-4 pt-4 border-t border-[#262626]">
+                <button
+                  onClick={toggleLang}
+                  className="text-xs font-medium uppercase tracking-widest text-[#a3a3a3] hover:text-[#e5e5e5] transition-colors border border-[#262626] px-3 py-1 hover:border-[#525252]"
+                >
+                  {lang === 'es' ? 'ES' : 'EN'}
                 </button>
-                <ThemeToggle />
               </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
     </header>
-  );
-}
-
-function ThemeToggle() {
-  const [dark, setDark] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return (
-        localStorage.getItem('theme') === 'dark' ||
-        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)
-      );
-    }
-    return false;
-  });
-
-  useEffect(() => {
-    const root = document.documentElement;
-    if (dark) {
-      root.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      root.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  }, [dark]);
-
-  return (
-    <button
-      onClick={() => setDark(!dark)}
-      className="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
-      aria-label="Toggle theme"
-    >
-      {dark ? <Sun size={20} /> : <Moon size={20} />}
-    </button>
   );
 }
