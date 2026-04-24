@@ -85,7 +85,7 @@ export default function Education() {
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   className="flex flex-col items-center gap-3"
                 >
-                  <div className="border border-[#262626] overflow-hidden w-[166px] hover:border-[#525252] transition-colors duration-200">
+                  <div className="bg-white border border-[#262626] overflow-hidden w-[166px] hover:border-[#525252] transition-colors duration-200">
                     <iframe
                       src={`https://www.credly.com/embedded_badge/${badge.id}`}
                       width="150"
@@ -93,7 +93,7 @@ export default function Education() {
                       frameBorder="0"
                       scrolling="no"
                       title={`Credly badge ${index + 1}`}
-                      className="block"
+                      className="block mx-auto"
                     />
                   </div>
                   <p className="text-xs font-medium text-[#a3a3a3] text-center max-w-[166px] leading-tight">
