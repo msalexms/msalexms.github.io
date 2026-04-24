@@ -44,16 +44,9 @@ export default function Header() {
       <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <button
           onClick={() => scrollTo('hero')}
-          className="flex items-center hover:opacity-80 transition-opacity"
-          aria-label="Go to top"
+          className="text-sm font-bold tracking-tight text-[#e5e5e5] hover:text-[#d4d4d4] transition-colors"
         >
-          <img
-            src="/logo.svg"
-            alt="[AMS]"
-            width={32}
-            height={32}
-            className="block"
-          />
+          [AMS]
         </button>
 
         <div className="hidden md:flex items-center gap-8">
