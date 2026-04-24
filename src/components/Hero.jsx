@@ -36,11 +36,13 @@ export default function Hero() {
           className="flex-shrink-0 mx-auto md:mx-0 mt-6 md:mt-10"
         >
           <div className="border border-[#262626] hover:border-[#525252] transition-colors duration-300">
+            {/* Efectos disponibles: 'scan' | 'decode' | 'static' | 'glitch' | 'matrix' */}
             <AsciiPortrait
               src="/perfil.jpeg"
               alt={general.name}
               width={320}
               height={320}
+              effect="scan"
             />
           </div>
         </motion.div>
