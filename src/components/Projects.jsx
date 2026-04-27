@@ -64,14 +64,16 @@ export default function Projects() {
                     >
                       [src]
                     </a>
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs text-[#525252] hover:text-[#a3a3a3] transition-colors"
-                    >
-                      [demo]
-                    </a>
+                    {project.demo && (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs text-[#525252] hover:text-[#a3a3a3] transition-colors"
+                      >
+                        [demo]
+                      </a>
+                    )}
                   </div>
                 </div>
 
