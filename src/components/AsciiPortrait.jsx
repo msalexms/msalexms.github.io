@@ -46,6 +46,18 @@ export default function AsciiPortrait({
     }
   }, [width, height]);
 
+  const drawPixelArt = useCallback((ctx, { asciiData, cols, rows }) => {
+    const cellW = width / cols;
+    const cellH = height / rows;
+    for (let y = 0; y < rows; y++) {
+      for (let x = 0; x < cols; x++) {
+        const cell = asciiData[y][x];
+        ctx.fillStyle = `rgb(${cell.r},${cell.g},${cell.b})`;
+        ctx.fillRect(x * cellW, y * cellH, cellW, cellH);
+      }
+    }
+  }, [width, height]);
+
   const drawScan = useCallback((ctx, { asciiData, cols, rows }, time, state) => {
     ctx.fillStyle = '#0a0a0a';
     ctx.fillRect(0, 0, width, height);
@@ -301,14 +313,14 @@ export default function AsciiPortrait({
             drawAscii(ctx, data, time, state);
         }
       } else {
-        drawAscii(ctx, data, time, state);
+        drawPixelArt(ctx, data);
       }
       animId = requestAnimationFrame(loop);
     };
 
     animId = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(animId);
-  }, [effect, revealed, width, height, drawScan, drawDecode, drawStatic, drawGlitch, drawMatrix, drawAscii]);
+  }, [effect, revealed, width, height, drawScan, drawDecode, drawStatic, drawGlitch, drawMatrix, drawAscii, drawPixelArt]);
 
   const handleClick = () => {
     setRevealed((prev) => !prev);
@@ -329,7 +341,7 @@ export default function AsciiPortrait({
       {/* Indicador de interacción */}
       <div className="absolute inset-x-0 bottom-0 z-10 flex justify-center opacity-100 hover:opacity-0 transition-opacity duration-300 pointer-events-none">
         <span className="text-[10px] text-[#525252] bg-[#0a0a0a] px-2 py-1 border-t border-x border-[#262626]">
-          [ click to focus ]
+          [ click to pixelate ]
         </span>
       </div>
     </div>
