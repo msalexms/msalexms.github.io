@@ -38,7 +38,6 @@ export default function Hero() {
           <div className="border border-[#262626] hover:border-[#525252] transition-colors duration-300">
             {/* Efectos disponibles: 'scan' | 'decode' | 'static' | 'glitch' | 'matrix' */}
             <AsciiPortrait
-              src="/perfil.jpeg"
               alt={general.name}
               width={320}
               height={320}

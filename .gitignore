@@ -23,3 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 .opencode
+
+# Private profile photo
+public/perfil.jpeg

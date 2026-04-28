@@ -2,6 +2,8 @@
  * AsciiPortrait.jsx
  *
  * Componente ASCII con múltiples efectos visuales seleccionables.
+ * Los datos ASCII se generan en build time (src/data/asciiData.json)
+ * para evitar incluir la foto real en el repositorio.
  *
  * Efectos disponibles (prop 'effect'):
  *   'scan'    -> Línea de escaneo que revela la imagen
@@ -10,15 +12,13 @@
  *   'glitch'  -> Bloques glitch que desplazan
  *   'matrix'  -> Lluvia Matrix que revela
  *
- * Click para revelar/ocultar la imagen real completa.
+ * Click para alternar entre efecto animado y ASCII estático.
  */
 
 import { useRef, useEffect, useState, useCallback } from 'react';
-
-const ASCII_CHARS = '@%#*+=-:. ';
+import asciiDataJson from '../data/asciiData.json';
 
 export default function AsciiPortrait({
-  src,
   alt,
   width = 320,
   height = 320,
@@ -26,55 +26,8 @@ export default function AsciiPortrait({
 }) {
   const canvasRef = useRef(null);
   const [revealed, setRevealed] = useState(false);
-  const [loaded, setLoaded] = useState(false);
-  const imgRef = useRef(null);
-  const asciiDataRef = useRef(null);
   const animRef = useRef(null);
   const stateRef = useRef({});
-
-  const generateAsciiData = useCallback((img) => {
-    const offCanvas = document.createElement('canvas');
-    const offCtx = offCanvas.getContext('2d');
-    const cols = 80;
-    const rows = 80;
-    offCanvas.width = cols;
-    offCanvas.height = rows;
-    offCtx.drawImage(img, 0, 0, cols, rows);
-    const imageData = offCtx.getImageData(0, 0, cols, rows);
-    const data = imageData.data;
-
-    const asciiData = [];
-    for (let y = 0; y < rows; y++) {
-      const row = [];
-      for (let x = 0; x < cols; x++) {
-        const i = (y * cols + x) * 4;
-        const r = data[i];
-        const g = data[i + 1];
-        const b = data[i + 2];
-        const brightness = r * 0.299 + g * 0.587 + b * 0.114;
-        const charIndex = Math.floor((brightness / 255) * (ASCII_CHARS.length - 1));
-        row.push({
-          char: ASCII_CHARS[charIndex],
-          brightness,
-          r,
-          g,
-          b,
-        });
-      }
-      asciiData.push(row);
-    }
-    return { asciiData, cols, rows };
-  }, []);
-
-  useEffect(() => {
-    const img = new Image();
-    img.src = src;
-    img.onload = () => {
-      imgRef.current = img;
-      asciiDataRef.current = generateAsciiData(img);
-      setLoaded(true);
-    };
-  }, [src, generateAsciiData]);
 
   // Efectos de dibujo
   const drawAscii = useCallback((ctx, { asciiData, cols, rows }, _time, _state) => {
@@ -316,15 +269,13 @@ export default function AsciiPortrait({
   }, [width, height]);
 
   useEffect(() => {
-    if (!loaded || !asciiDataRef.current) return;
-
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     canvas.width = width;
     canvas.height = height;
 
-    const data = asciiDataRef.current;
+    const data = asciiDataJson;
     const state = stateRef.current;
 
     let animId;
@@ -350,14 +301,14 @@ export default function AsciiPortrait({
             drawAscii(ctx, data, time, state);
         }
       } else {
-        ctx.drawImage(imgRef.current, 0, 0, width, height);
+        drawAscii(ctx, data, time, state);
       }
       animId = requestAnimationFrame(loop);
     };
 
     animId = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(animId);
-  }, [loaded, effect, revealed, width, height, drawScan, drawDecode, drawStatic, drawGlitch, drawMatrix, drawAscii]);
+  }, [effect, revealed, width, height, drawScan, drawDecode, drawStatic, drawGlitch, drawMatrix, drawAscii]);
 
   const handleClick = () => {
     setRevealed((prev) => !prev);
@@ -368,25 +319,19 @@ export default function AsciiPortrait({
       className="relative overflow-hidden cursor-pointer select-none"
       style={{ width, height }}
       onClick={handleClick}
+      role="img"
+      aria-label={alt}
     >
-      {!loaded ? (
-        <div className="w-full h-full flex items-center justify-center bg-[#0a0a0a] border border-[#262626]">
-          <span className="text-[#525252] text-xs animate-pulse">loading...</span>
-        </div>
-      ) : (
-        <>
-          <canvas
-            ref={canvasRef}
-            style={{ width: '100%', height: '100%', display: 'block' }}
-          />
-          {/* Indicador de interacción */}
-          <div className="absolute inset-x-0 bottom-0 z-10 flex justify-center opacity-100 hover:opacity-0 transition-opacity duration-300 pointer-events-none">
-            <span className="text-[10px] text-[#525252] bg-[#0a0a0a] px-2 py-1 border-t border-x border-[#262626]">
-              [ click to reveal ]
-            </span>
-          </div>
-        </>
-      )}
+      <canvas
+        ref={canvasRef}
+        style={{ width: '100%', height: '100%', display: 'block' }}
+      />
+      {/* Indicador de interacción */}
+      <div className="absolute inset-x-0 bottom-0 z-10 flex justify-center opacity-100 hover:opacity-0 transition-opacity duration-300 pointer-events-none">
+        <span className="text-[10px] text-[#525252] bg-[#0a0a0a] px-2 py-1 border-t border-x border-[#262626]">
+          [ click to focus ]
+        </span>
+      </div>
     </div>
   );
 }
