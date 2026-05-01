@@ -141,14 +141,14 @@ export const portfolioData = {
       id: "tfm",
               es: {
                 tabLabel: "TFM",
-                title: "Trabajo de Fin de Máster",
+                title: "Trabajo de Fin de Máster 2025",
                 documentTitle: "Collaborative and Distributed DoS Detection in IoT Scenarios",
                 abstract: "Este trabajo propone un marco basado en aprendizaje federado utilizando el framework Flower para la detección de ataques DDoS en tiempo real en redes IoT. Facilita el entrenamiento colaborativo entre dispositivos en el borde (edge) sin centralizar datos privados, logrando una alta precisión y eficiencia con algoritmos como XGBoost.",
                 downloadLabel: "Descargar PDF",
               },
               en: {
                 tabLabel: "TFM",
-                title: "Master's Thesis",
+                title: "Master's Thesis 2025",
                 documentTitle: "Collaborative and Distributed DoS Detection in IoT Scenarios",
                 abstract: "This thesis proposes a federated learning-based framework using the Flower framework for real-time DDoS detection in IoT networks. It enables collaborative model training across distributed edge devices without centralizing sensitive data, achieving high accuracy and efficiency through feature selection and algorithms like XGBoost.",
                 downloadLabel: "Download PDF",
@@ -159,14 +159,14 @@ export const portfolioData = {
       id: "tfg",
               es: {
                 tabLabel: "TFG",
-                title: "Trabajo de Fin de Grado",
+                title: "Trabajo de Fin de Grado 2024",
                 documentTitle: "Optimización de Modelos de IA mediante Destilación para Dispositivos Edge",
                 abstract: "Investigación sobre la integración de IA en dispositivos de bajo consumo (Edge Computing) mediante técnicas de compresión como la destilación de modelos (Teacher-Student). Se implementó un sistema de detección de personas en hardware limitado (ESP32, Raspberry Pi y Nvidia Jetson), logrando mejoras de rendimiento de hasta un 20% respecto a los modelos originales.",
                 downloadLabel: "Descargar PDF",
               },
               en: {
                 tabLabel: "Bachelor's Thesis",
-                title: "Bachelor's Thesis",
+                title: "Bachelor's Thesis 2024",
                 documentTitle: "AI Model Optimization through Distillation for Edge Devices",
                 abstract: "Research on integrating AI into low-power devices (Edge Computing) using compression techniques such as model distillation (Teacher-Student). A person detection system was implemented on constrained hardware (ESP32, Raspberry Pi, and Nvidia Jetson), achieving performance improvements of up to 20% compared to the original models.",
                 downloadLabel: "Download PDF",
