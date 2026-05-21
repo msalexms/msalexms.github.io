@@ -118,6 +118,16 @@ export const portfolioData = {
     en: { title: "Featured Projects", subtitle: "A selection of my most recent work" },
     items: [
       {
+        title: "MoM — Message Of the Day Manager",
+        description: {
+          es: "Una TUI interactiva escrita en Go que convierte el clásico MOTD estático en un dashboard dinámico para tu sistema. Muestra información útil en tiempo real y te permite personalizarlo fácilmente con 32 módulos, temas, plantillas predefinidas, perfiles y copias de seguridad con rollback. Incluye detección automática de dependencias y opciones para exportar o importar configuraciones. Construido con Bubble Tea, Lipgloss y Bubbles de Charmbracelet.",
+          en: "An interactive TUI written in Go that transforms the classic static MOTD into a dynamic system dashboard. It brings useful system information to life in real time and makes customization easy with 32 modules, themes, preset templates, profiles, and rollback backups. Includes automatic dependency detection and configuration export/import. Built with Charmbracelet’s Bubble Tea, Lipgloss, and Bubbles.",
+          },
+        technologies: ["Go", "Bubble Tea", "Lipgloss", "Linux", "TUI", "CLI"],
+        github: "https://github.com/msalexms/MoM",
+        image: "/mom-demo.gif",
+      },
+      {
         title: "RTL-SDR Analyzer",
         description: {
           es: "Analizador de espectro en tiempo real y detector de jamming para hardware RTL-SDR. Procesa muestras I/Q vía RTL-TCP, calcula la FFT en tiempo real y detecta anomalías estadísticas con umbrales adaptativos. Soporta modos interactivo (GUI) y headless, exportación a CSV/JSON, persistencia en SQLite y barrido de frecuencias.",
