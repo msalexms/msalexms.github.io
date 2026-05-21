@@ -128,6 +128,16 @@ export const portfolioData = {
         image: "/mom-demo.gif",
       },
       {
+        title: "fin-cli",
+        description: {
+          es: "Monitor financiero para la terminal que te permite tener un dashboard con tu watchlist de acciones en tiempo real. Lo hice porque me apetecía tener los precios a mano sin salir de la consola. Soporta múltiples proveedores con fallback automático, resuelve ISINs a tickers, cachea datos en disco para ir rápido y tiene un panel de configuración interactivo dentro de la propia TUI.",
+          en: "A financial monitor for the terminal that gives you a live dashboard with your stock watchlist. I built it because I wanted to keep an eye on prices without leaving the terminal. Supports multiple providers with automatic fallback, resolves ISINs to tickers, caches data on disk for fast starts, and has an interactive settings panel right inside the TUI.",
+        },
+        technologies: ["Go", "Bubble Tea", "TUI", "CLI", "Finance", "XDG"],
+        github: "https://github.com/msalexms/fin-cli",
+        image: "/fin-cli-demo.gif",
+      },
+      {
         title: "RTL-SDR Analyzer",
         description: {
           es: "Analizador de espectro en tiempo real y detector de jamming para hardware RTL-SDR. Procesa muestras I/Q vía RTL-TCP, calcula la FFT en tiempo real y detecta anomalías estadísticas con umbrales adaptativos. Soporta modos interactivo (GUI) y headless, exportación a CSV/JSON, persistencia en SQLite y barrido de frecuencias.",
@@ -135,7 +145,7 @@ export const portfolioData = {
         },
         technologies: ["Python", "NumPy", "RTL-SDR", "SQLite", "Docker", "Pydantic"],
         github: "https://github.com/msalexms/rtl-sdr-analyzer",
-        image: "/spectrogram.png",
+        image: "/rtl-sdr-analyzer-demo.gif",
       },
     ],
   },
