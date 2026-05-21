@@ -145,7 +145,7 @@ export const portfolioData = {
         },
         technologies: ["Python", "NumPy", "RTL-SDR", "SQLite", "Docker", "Pydantic"],
         github: "https://github.com/msalexms/rtl-sdr-analyzer",
-        image: "/rtl-sdr-analyzer-demo.gif",
+        image: "/spectrogram.png",
       },
     ],
   },
