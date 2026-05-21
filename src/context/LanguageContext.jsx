@@ -29,7 +29,8 @@ export function useLanguage() {
  */
 export function LanguageProvider({ children }) {
   const [lang, setLang] = useState(() => {
-    return localStorage.getItem('portfolio-lang') || 'es';
+    const stored = localStorage.getItem('portfolio-lang');
+    return (stored === 'es' || stored === 'en') ? stored : 'es';
   });
 
   useEffect(() => {

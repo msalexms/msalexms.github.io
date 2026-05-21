@@ -12,7 +12,7 @@ import { portfolioData } from '../data/portfolioData';
 
 export default function Header() {
   const { lang, toggleLang } = useLanguage();
-  const nav = portfolioData.nav[lang];
+  const nav = portfolioData.nav[lang] ?? portfolioData.nav.es;
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
