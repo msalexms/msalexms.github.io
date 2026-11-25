@@ -19,7 +19,7 @@ export default function GitLog() {
 
   return (
     <div
-      className="ams-rise mt-8 bg-[#1E1B2E] text-[#E9E6E0] border-2 border-[#1E1B2E] rounded-md px-5 py-4 font-ams-mono text-[12.5px] leading-[1.7] shadow-[4px_4px_0_rgba(30,27,46,0.25)] overflow-hidden"
+      className="ams-rise mt-10 overflow-hidden border border-[#262626] bg-[#0a0a0a] px-5 py-4 font-mono text-[12px] leading-[1.7] text-[#e5e5e5]"
       style={{ animationDelay: '0.4s' }}
     >
       <div className="text-[#9EA6F2] mb-1.5">

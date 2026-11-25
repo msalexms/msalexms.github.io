@@ -103,47 +103,49 @@ body {
   color: #e5e5e5;
 }
 
-/* ================= AMSTech UI ================= */
-/* Botones de la banda de proyectos (manual de marca v1.5). */
+/* ================= AMS Tech (banda de proyectos) ================= */
+/* Botones de la banda de proyectos: misma línea que los botones del hero. */
 
 .ams-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 34px;
-  padding: 0 12px;
-  border-radius: 6px;
-  border: 2px solid #1e1b2e;
-  background: #ffffff;
-  color: #1e1b2e;
-  font: 800 13px / 1 'Figtree', system-ui, sans-serif;
+  min-height: 32px;
+  padding: 0 14px;
+  border: 1px solid #262626;
+  background: transparent;
+  color: #a3a3a3;
+  font: 500 12px / 1 'JetBrains Mono', ui-monospace, monospace;
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
-  box-shadow: 2.5px 2.5px 0 #1e1b2e;
   transition:
-    transform 0.1s ease,
-    box-shadow 0.1s ease,
-    background 0.12s ease;
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease;
 }
 
 .ams-btn:hover {
-  transform: translate(-1px, -1px);
-}
-
-.ams-btn:active {
-  transform: translate(2px, 2px);
-  box-shadow: none;
+  border-color: #525252;
+  color: #e5e5e5;
 }
 
 .ams-btn--ink {
-  background: #1e1b2e;
-  color: #fff6e9;
+  border-color: #e5e5e5;
+  background: #e5e5e5;
+  color: #0a0a0a;
 }
 
 .ams-btn--ink:hover {
-  background: #2a2742;
+  border-color: #ffffff;
+  background: #ffffff;
+  color: #0a0a0a;
+}
+
+.ams-btn:focus-visible {
+  outline: 2px solid #ffe27a;
+  outline-offset: 2px;
 }
 
 /* Entrada de la banda: solo transform (nunca opacity), el contenido siempre es visible */
@@ -317,12 +319,10 @@ body {
   align-items: center;
   gap: 6px;
   padding: 5px 10px;
-  border-radius: 5px;
-  background: #ffffff;
-  border: 1.5px solid #1e1b2e;
-  box-shadow: 2px 2px 0 #1e1b2e;
-  color: #1e1b2e;
-  font: 500 11px / 1 'DM Mono', ui-monospace, monospace;
+  background: #0d0d0d;
+  border: 1px solid #404040;
+  color: #e5e5e5;
+  font: 500 11px / 1 'JetBrains Mono', ui-monospace, monospace;
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
@@ -335,6 +335,8 @@ body {
 .thor3d-chip:hover,
 .thor3d-chip:focus-visible {
   background: #ffe27a;
+  border-color: #ffe27a;
+  color: #0a0a0a;
   outline: none;
 }
 
@@ -342,7 +344,7 @@ body {
   width: 8px;
   height: 8px;
   border-radius: 2px;
-  border: 1.4px solid #1e1b2e;
+  border: 1.4px solid #0a0a0a;
   display: inline-block;
   flex: none;
 }
