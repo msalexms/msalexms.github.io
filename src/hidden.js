@@ -55,7 +55,7 @@ export function installHidden() {
     about: () =>
       console.log(
         isEs()
-          ? 'Alejandro Martín Sánchez — ingeniero de software. Del silicio a la nube, cada capa importa.'
+          ? 'Alejandro Martín Sánchez — ingeniero de software. From silicon to the cloud, every layer matters.'
           : 'Alejandro Martín Sánchez — software engineer. From silicon to the cloud, every layer matters.'
       ),
     stack: () =>

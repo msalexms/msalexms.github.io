@@ -14,7 +14,7 @@ export const portfolioData = {
     es: {
       name: "Alejandro Martín Sánchez",
       role: "Ingeniero de software · Visión artificial · Edge AI · IoT",
-      slogan: "Del silicio a la nube, cada capa importa.",
+      slogan: "From silicon to the cloud, every layer matters.",
       email: "msalejandroms@gmail.com",
       location: "Madrid, España",
     },
@@ -38,23 +38,11 @@ export const portfolioData = {
       ctaPrimary: "Ver experiencia",
       ctaProjects: "Ver proyectos",
       ctaSecondary: "Contactar",
-      stack: [
-        { label: "SILICON", detail: "C++ · Firmware · ESP32" },
-        { label: "EDGE", detail: "Jetson · TFLite · ReID" },
-        { label: "VISION", detail: "OpenCV · Tiempo real" },
-        { label: "CLOUD", detail: "Java · Spring · Angular" },
-      ],
     },
     en: {
       ctaPrimary: "View experience",
       ctaProjects: "View projects",
       ctaSecondary: "Contact",
-      stack: [
-        { label: "SILICON", detail: "C++ · Firmware · ESP32" },
-        { label: "EDGE", detail: "Jetson · TFLite · ReID" },
-        { label: "VISION", detail: "OpenCV · Real time" },
-        { label: "CLOUD", detail: "Java · Spring · Angular" },
-      ],
     },
   },
 

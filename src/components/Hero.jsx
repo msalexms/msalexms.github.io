@@ -2,14 +2,12 @@
  * Hero.jsx
  *
  * Sección de presentación estilo terminal/ASCII.
- * El retrato se presenta como un fichero abierto en el sistema; debajo,
- * la cadena de capas que resume el perfil: silicon → edge → vision → cloud.
+ * Retrato a la izquierda (en gris, a color al pasar el ratón) y presentación a la derecha.
  */
 
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { portfolioData } from '../data/portfolioData';
-import AsciiPortrait from './AsciiPortrait';
 import GridSpotlight from './GridSpotlight';
 
 export default function Hero() {
@@ -40,14 +38,20 @@ export default function Hero() {
             transition={{ delay: 0.1, duration: 0.4 }}
             className="order-2 mx-auto w-full max-w-[360px] md:order-1 md:mx-0"
           >
-            <div className="border border-[#262626] bg-[#0d0d0d] transition-colors duration-300 hover:border-[#525252]">
-              <AsciiPortrait
+            <figure className="group relative overflow-hidden border border-[#262626] bg-[#0d0d0d] transition-colors duration-300 hover:border-[#525252]">
+              <img
+                src="/img/perfil.jpg"
                 alt={general.name}
-                width={320}
-                height={320}
-                effect="glitch"
+                width={800}
+                height={1000}
+                decoding="async"
+                className="aspect-[4/5] w-full object-cover grayscale brightness-[0.82] contrast-[1.05] transition-[filter] duration-500 group-hover:grayscale-0 group-hover:brightness-95"
               />
-            </div>
+              <div
+                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/70 via-transparent to-[#0a0a0a]/20"
+                aria-hidden="true"
+              />
+            </figure>
           </motion.div>
 
           <div className="order-1 text-center md:order-2 md:text-left">
@@ -114,24 +118,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.7, duration: 0.4 }}
-        className="relative z-10 border-t border-[#262626] bg-[#0a0a0a]/90 backdrop-blur-sm"
-      >
-        <div className="mx-auto grid max-w-6xl grid-cols-2 border-t border-[#262626] px-6 md:grid-cols-4 md:divide-x md:divide-[#262626]">
-          {hero.stack.map((layer) => (
-            <div key={layer.label} className="px-3 py-3.5 md:px-4">
-              <p className="font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-[#e5e5e5]">
-                {layer.label}
-              </p>
-              <p className="mt-1 font-mono text-[10px] text-[#9c9c9c]">{layer.detail}</p>
-            </div>
-          ))}
-        </div>
-      </motion.div>
     </section>
   );
 }
