@@ -1,7 +1,7 @@
 /**
  * GridSpotlight.jsx
  *
- * Aro de luz que sigue al ratón y ilumina las líneas de la rejilla de fondo.
+ * Halo de luz blanca que sigue al ratón e ilumina las líneas de la rejilla de fondo.
  * Se coloca como primer hijo de una sección `relative`; escucha el puntero de
  * esa sección. La posición se actualiza con CSS variables (sin re-render) y un
  * pequeño suavizado, así que no cuesta nada en rendimiento.
@@ -72,7 +72,7 @@ export default function GridSpotlight() {
       style={{ opacity: 0 }}
     >
       <div className="grid-spotlight__lines absolute inset-0" />
-      <div className="grid-spotlight__ring" />
+      <div className="grid-spotlight__glow absolute inset-0" />
     </div>
   );
 }
