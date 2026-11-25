@@ -7,7 +7,7 @@
  * - Click / Enter lo "explota" en capas y guiña el ojo
  * - Respeta prefers-reduced-motion
  *
- * Colores ajustados para la banda oscura de proyectos.
+ * Variante de color para fondo claro (banda de proyectos).
  */
 
 import { useEffect, useRef } from 'react';
@@ -211,7 +211,7 @@ export default function Thor3D() {
         {/* Capa trasera: silueta */}
         <div className="thor3d-layer thor3d-back" aria-hidden="true">
           <svg viewBox="-2 -2 52 52">
-            <path d={HEAD_PATH} fill="#FFFFFF" opacity="0.08" />
+            <path d={HEAD_PATH} fill="#1E1B2E" opacity="0.16" />
           </svg>
         </div>
         {/* Capa de alambre: contorno amarillo */}
@@ -223,7 +223,7 @@ export default function Thor3D() {
         {/* Cuerpo: cabeza azul de marca */}
         <div className="thor3d-layer thor3d-body" aria-hidden="true">
           <svg viewBox="-2 -2 52 52">
-            <path d={HEAD_PATH} fill="#2B36D9" stroke="#0a0a0a" strokeWidth="2.2" strokeLinejoin="round" />
+            <path d={HEAD_PATH} fill="#2B36D9" stroke="#1E1B2E" strokeWidth="2.2" strokeLinejoin="round" />
           </svg>
         </div>
         {/* Prompt flotante: > _ */}
