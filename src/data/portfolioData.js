@@ -14,7 +14,7 @@ export const portfolioData = {
     es: {
       name: "Alejandro Martín Sánchez",
       role: "Ingeniero de software · Visión artificial · Edge AI · IoT",
-      slogan: "From silicon to the cloud, every layer matters.",
+      slogan: "Del silicio a la nube, cada capa importa.",
       email: "msalejandroms@gmail.com",
       location: "Madrid, España",
     },
@@ -35,8 +35,8 @@ export const portfolioData = {
 
   hero: {
     es: {
-      ctaPrimary: "Ver Experiencia",
-      ctaProjects: "Ver Proyectos",
+      ctaPrimary: "Ver experiencia",
+      ctaProjects: "Ver proyectos",
       ctaSecondary: "Contactar",
       stack: [
         { label: "SILICON", detail: "C++ · Firmware · ESP32" },
@@ -46,8 +46,8 @@ export const portfolioData = {
       ],
     },
     en: {
-      ctaPrimary: "View Experience",
-      ctaProjects: "View Projects",
+      ctaPrimary: "View experience",
+      ctaProjects: "View projects",
       ctaSecondary: "Contact",
       stack: [
         { label: "SILICON", detail: "C++ · Firmware · ESP32" },
@@ -69,15 +69,15 @@ export const portfolioData = {
         role: "software_engineer @ indra / NECS",
         focus: "computer_vision · edge_ai · iot",
         base: "madrid, es · 40.4168°N 3.7038°W",
-        status: "building systems that run 24/7",
+        status: "construyendo sistemas que funcionan 24/7",
       },
       copyEmail: "Copiar email",
       copied: "Copiado",
       catNote: "Thor supervisa el laboratorio. No le impresionan tus tiempos de compilación.",
       paragraphs: [
-        "Trabajo en Indra, en NECS, la red nacional de radares de tráfico del Reino Unido: un sistema crítico que opera 24/7. Me muevo entre el backend en Java, Spring Boot y C++, los componentes de visión artificial que procesan las cámaras en tiempo real y el frontend en Angular desde el que se monitoriza todo. También trasteo con APIs de LLMs y el Model Context Protocol (MCP) por mi cuenta.",
-        "Antes de eso, pasé un año en la Universidad de Alcalá investigando cómo desplegar y comprimir modelos CNN de detección y reidentificación de personas en hardware tan limitado como un microcontrolador ESP32. Y en Moeve construí el software de control de un hangar de drones autónomos, además de automatizar de principio a fin una línea de procesamiento químico.",
-        "Fuera del trabajo me entretengo trasteando con mi homelab, montando sensores para Home Assistant, siguiendo la Fórmula 1, yendo al gimnasio o saliendo a caminar para despejarme. Y, por supuesto, tengo un gato que supervisa de cerca todo lo que hago.",
+        "Soy ingeniero de software y me muevo entre capas: del firmware de un microcontrolador al backend y al frontend desde el que se monitoriza todo. Ahora trabajo en Indra, en NECS, la red nacional de radares de tráfico del Reino Unido, un sistema crítico que opera 24/7. Por mi cuenta también experimento con APIs de LLMs y con el Model Context Protocol (MCP).",
+        "Antes pasé un año en la Universidad de Alcalá investigando cómo comprimir y desplegar modelos CNN de detección y reidentificación de personas en hardware tan limitado como un ESP32. Y en Moeve construí el software de control de un hangar de drones autónomos y automaticé de principio a fin una línea de procesamiento químico.",
+        "Cuando desconecto, me encontrarás con mi homelab, montando sensores para Home Assistant, siguiendo la Fórmula 1, en el gimnasio o dando un paseo para despejarme.",
       ],
     },
     en: {
@@ -96,9 +96,9 @@ export const portfolioData = {
       copied: "Copied",
       catNote: "Thor supervises the lab. He is not impressed by your compile times.",
       paragraphs: [
-        "I work at Indra on NECS, the UK's national traffic radar network, a safety-critical system that runs 24/7. My work spans the Java, Spring Boot, and C++ backend, the computer vision components that process camera feeds in real time, and the Angular frontend used to monitor alerts and configure cameras and peripherals. I also tinker with LLM APIs and the Model Context Protocol (MCP) on my own time.",
+        "I'm a software engineer who works across layers, from microcontroller firmware to the backend and the frontend that monitors it all. I currently work at Indra on NECS, the UK's national traffic radar network, a safety-critical system that runs 24/7. On my own time I also experiment with LLM APIs and the Model Context Protocol (MCP).",
         "Before that, at Universidad de Alcalá I spent a year researching how to deploy and compress CNN-based detection and re-identification models on hardware as constrained as an ESP32 microcontroller. And at Moeve I built the control software for an autonomous drone hangar and an industrial automation pipeline for a chemical processing line.",
-        "Outside of work I tinker with my homelab, build sensors for Home Assistant, follow Formula 1, hit the gym, and go for walks when I need to clear my head. I also have a cat who supervises everything from above.",
+        "When I switch off, you will find me with my homelab, building sensors for Home Assistant, following Formula 1, at the gym, or out for a walk to clear my head.",
       ],
     },
   },
@@ -113,7 +113,7 @@ export const portfolioData = {
         period: { es: "May 2025 – Presente", en: "May 2025 – Present" },
         projectLink: "https://www.indracompany.com/en/mobile-fixed-radars",
         description: {
-          es: "Trabajo en NECS, la red nacional de radares del Reino Unido, un sistema que opera 24/7. Me encargo del backend en Java y Spring Boot que conecta los componentes del sistema con servicios cloud y on-premise, de los componentes de visión artificial que leen las cámaras de los pórticos y detectan señales de velocidad variable en tiempo real, y del frontend en Angular para infracciones, alertas y configuración de cámaras.",
+          es: "Trabajo en NECS, la red nacional de radares del Reino Unido, un sistema que opera 24/7. Me encargo del backend en Java y Spring Boot que conecta los componentes del sistema con servicios cloud y on-premise, de los componentes de visión artificial que leen las cámaras de los pórticos de carretera y detectan señales de velocidad variable en tiempo real, y del frontend en Angular para infracciones, alertas y configuración de cámaras.",
           en: "I work on NECS, the UK's National Enforcement Camera Solution, a radar network that runs 24/7. My work spans the Java and Spring Boot backend that connects system components with cloud and on-premise services, the computer vision components that read gantry cameras and detect variable speed signs in real time, and the Angular frontend for infractions, alerts, and camera configuration.",
         },
         technologies: ["Java", "Spring Boot", "Angular", "C++", "OpenCV", "Computer Vision", "Linux"],
@@ -343,19 +343,17 @@ export const portfolioData = {
       copyLabel: "Copiar email",
       copiedLabel: "Copiado",
       statusValue: "Abierto a conversaciones interesantes",
-      rights: "Todos los derechos reservados.",
-      builtWith: "Construido con React y Tailwind CSS",
+      builtWith: "Hecho con React y Tailwind CSS",
       backToTop: "Volver arriba",
     },
     en: {
       contactTitle: "Contact",
       ctaTitle: "Let's talk.",
-      ctaText: "If you have a hard problem, a system that cannot fail, or an idea that deserves a prototype, write to me.",
-      emailCta: "Write me",
+      ctaText: "If you have a hard problem, a system that cannot fail, or an idea that deserves a prototype, get in touch.",
+      emailCta: "Email me",
       copyLabel: "Copy email",
       copiedLabel: "Copied",
       statusValue: "Open to interesting conversations",
-      rights: "All rights reserved.",
       builtWith: "Built with React and Tailwind CSS",
       backToTop: "Back to top",
     },

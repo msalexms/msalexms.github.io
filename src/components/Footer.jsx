@@ -124,7 +124,7 @@ export default function Footer() {
 
         <div className="mt-14 flex flex-col justify-between gap-3 border-t border-[#262626] pt-6 text-center font-mono text-[10px] uppercase tracking-[0.08em] text-[#7d7d7d] md:flex-row md:text-left">
           <p>
-            © {new Date().getFullYear()} {general.name}. {footer.rights}
+            © {new Date().getFullYear()} {general.name}
           </p>
           <p>{footer.builtWith}</p>
           <button
