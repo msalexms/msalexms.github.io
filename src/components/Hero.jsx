@@ -2,13 +2,14 @@
  * Hero.jsx
  *
  * Sección de presentación estilo terminal/ASCII.
- * Retrato a color a la izquierda, dentro de un marco tipo fichero, y presentación a la derecha.
+ * Retrato a la izquierda (se revela con el ratón) dentro de un marco tipo fichero, y presentación a la derecha.
  */
 
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { portfolioData } from '../data/portfolioData';
 import GridSpotlight from './GridSpotlight';
+import RevealPortrait from './RevealPortrait';
 
 export default function Hero() {
   const { lang } = useLanguage();
@@ -46,14 +47,7 @@ export default function Hero() {
                 </span>
                 <span>Madrid, ES</span>
               </figcaption>
-              <img
-                src="/img/perfil.jpg"
-                alt={general.name}
-                width={800}
-                height={1000}
-                decoding="async"
-                className="aspect-[4/5] w-full object-cover"
-              />
+              <RevealPortrait src="/img/perfil.jpg" alt={general.name} width={800} height={1000} />
             </figure>
           </motion.div>
 
