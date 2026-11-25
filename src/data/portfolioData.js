@@ -125,12 +125,14 @@ export const portfolioData = {
       title: "Proyectos",
       subtitle: "Herramientas open source que uso a diario.",
       moreLabel: "Más en GitHub",
+      allLabel: "Ver todo en amstech.dev ↗",
       viewLabel: "Ver proyecto",
     },
     en: {
       title: "Projects",
       subtitle: "Open-source tools I use every day.",
       moreLabel: "More on GitHub",
+      allLabel: "See everything at amstech.dev ↗",
       viewLabel: "View project",
     },
     // Proyectos insignia de AMS Tech (amstech.dev)

@@ -191,6 +191,18 @@ export default function Projects() {
           </div>
         </div>
 
+        {/* Salida a la web completa */}
+        <div className="mt-6">
+          <a
+            href={social.amstech}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ams-btn ams-btn--ink"
+          >
+            {projects[lang].allLabel}
+          </a>
+        </div>
+
         {/* Terminal de banda: commits reales (o la nota de siempre) */}
         <GitLog />
       </div>

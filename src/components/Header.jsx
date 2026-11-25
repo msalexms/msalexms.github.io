@@ -89,6 +89,15 @@ export default function Header() {
             </button>
           ))}
 
+          <a
+            href={portfolioData.social.amstech}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden lg:inline text-xs font-medium tracking-widest text-[#9EA6F2] transition-colors hover:text-white"
+          >
+            amstech.dev ↗
+          </a>
+
           <button
             onClick={() => window.dispatchEvent(new Event('ams:palette'))}
             className="text-[10px] tracking-widest text-[#9c9c9c] hover:text-[#e5e5e5] transition-colors border border-[#262626] px-2 py-1 hover:border-[#525252]"
@@ -144,6 +153,15 @@ export default function Header() {
                   {link.label}
                 </button>
               ))}
+              <a
+                href={portfolioData.social.amstech}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileOpen(false)}
+                className="text-sm font-medium tracking-widest text-[#9EA6F2] transition-colors hover:text-white"
+              >
+                amstech.dev ↗
+              </a>
               <div className="flex items-center gap-3 pt-4 border-t border-[#262626]">
                 <button
                   onClick={toggleLang}
