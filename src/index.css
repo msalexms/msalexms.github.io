@@ -387,6 +387,12 @@ body {
   transform: translate3d(calc(10px * (var(--z) - 1)), calc(8px * (var(--z) - 1)), calc(38px * var(--z)));
 }
 
+.thor3d-chip-4 {
+  top: 6px;
+  left: -104px;
+  transform: translate3d(calc(-10px * (var(--z) - 1)), calc(-8px * (var(--z) - 1)), calc(32px * var(--z)));
+}
+
 @media (pointer: coarse) {
   .thor3d-stage {
     touch-action: pan-y;
@@ -424,6 +430,10 @@ body {
     bottom: -14px;
     right: -64px;
   }
+  .thor3d-chip-4 {
+    top: 6px;
+    left: -66px;
+  }
 }
 
 @media (max-width: 360px) {
@@ -435,6 +445,9 @@ body {
   }
   .thor3d-chip-3 {
     right: -52px;
+  }
+  .thor3d-chip-4 {
+    left: -54px;
   }
 }
 

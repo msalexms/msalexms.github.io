@@ -277,6 +277,15 @@ export default function Thor3D() {
           <i className="thor3d-dot" style={{ background: '#B48CFF' }} aria-hidden="true" />
           mom ↗
         </a>
+        <a
+          className="thor3d-chip thor3d-chip-4"
+          href="https://amstech.dev/proyectos/fin-cli/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i className="thor3d-dot" style={{ background: '#FFE27A' }} aria-hidden="true" />
+          fin-cli ↗
+        </a>
       </div>
     </div>
   );
