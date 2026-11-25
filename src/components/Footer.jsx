@@ -66,9 +66,6 @@ export default function Footer() {
           <div>
             <h3 className="mb-4 text-sm font-bold tracking-tight text-[#e5e5e5]">[AMS]</h3>
             <p className="max-w-[260px] text-xs leading-relaxed text-[#909090]">{general.slogan}</p>
-            <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.1em] text-[#6FD08C]">
-              {footer.statusValue}
-            </p>
           </div>
 
           <div>
@@ -126,7 +123,6 @@ export default function Footer() {
           <p>
             © {new Date().getFullYear()} {general.name}
           </p>
-          <p>{footer.builtWith}</p>
           <button
             type="button"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}

@@ -177,18 +177,23 @@ export const portfolioData = {
         site: "https://amstech.dev/proyectos/mom/",
         shot: "/img/proyectos/mom-preview.jpg",
       },
+      {
+        title: "fin-cli",
+        emblem: "terminal",
+        version: "v0.2.0",
+        lic: "MIT",
+        description: {
+          es: "Monitor financiero de terminal en Go con panel interactivo, minigráficos, cotizaciones al momento y respaldo entre proveedores sin API key.",
+          en: "Terminal finance monitor in Go with an interactive dashboard, sparklines, live quotes, and provider fallback with no API key needed.",
+        },
+        stack: "Go · TUI · CLI · Yahoo Finance",
+        github: "https://github.com/msalexms/fin-cli",
+        site: "https://amstech.dev/proyectos/fin-cli/",
+        shot: "/img/proyectos/fin-cli-preview.jpg",
+      },
     ],
     // Herramientas de terminal, también en amstech.dev
     tools: [
-      {
-        title: "fin-cli",
-        description: {
-          es: "Monitor financiero de terminal en tiempo real con caché local y varios proveedores con respaldo.",
-          en: "A real-time terminal finance monitor with local caching and multiple providers with automatic fallback.",
-        },
-        stack: "Go · CLI",
-        github: "https://github.com/msalexms/fin-cli",
-      },
       {
         title: "RTL-SDR Analyzer",
         description: {
@@ -317,8 +322,6 @@ export const portfolioData = {
       emailCta: "Escríbeme",
       copyLabel: "Copiar email",
       copiedLabel: "Copiado",
-      statusValue: "Abierto a conversaciones interesantes",
-      builtWith: "Hecho con React y Tailwind CSS",
       backToTop: "Volver arriba",
     },
     en: {
@@ -328,8 +331,6 @@ export const portfolioData = {
       emailCta: "Email me",
       copyLabel: "Copy email",
       copiedLabel: "Copied",
-      statusValue: "Open to interesting conversations",
-      builtWith: "Built with React and Tailwind CSS",
       backToTop: "Back to top",
     },
   },
