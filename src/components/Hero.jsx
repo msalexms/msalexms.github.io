@@ -2,7 +2,7 @@
  * Hero.jsx
  *
  * Sección de presentación estilo terminal/ASCII.
- * Retrato a la izquierda (en gris, a color al pasar el ratón) y presentación a la derecha.
+ * Retrato a color a la izquierda, dentro de un marco tipo fichero, y presentación a la derecha.
  */
 
 import { motion } from 'framer-motion';
@@ -38,18 +38,21 @@ export default function Hero() {
             transition={{ delay: 0.1, duration: 0.4 }}
             className="order-2 mx-auto w-full max-w-[360px] md:order-1 md:mx-0"
           >
-            <figure className="group relative overflow-hidden border border-[#262626] bg-[#0d0d0d] transition-colors duration-300 hover:border-[#525252]">
+            <figure className="overflow-hidden border border-[#262626] bg-[#0d0d0d] shadow-[0_0_70px_rgba(255,255,255,0.05)] transition-colors duration-300 hover:border-[#525252]">
+              <figcaption className="flex items-center justify-between border-b border-[#262626] px-3.5 py-2 font-mono text-[10px] uppercase tracking-[0.14em] text-[#909090]">
+                <span className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#6FD08C]" aria-hidden="true" />
+                  alejandro.jpg
+                </span>
+                <span>Madrid, ES</span>
+              </figcaption>
               <img
                 src="/img/perfil.jpg"
                 alt={general.name}
                 width={800}
                 height={1000}
                 decoding="async"
-                className="aspect-[4/5] w-full object-cover grayscale brightness-[0.82] contrast-[1.05] transition-[filter] duration-500 group-hover:grayscale-0 group-hover:brightness-95"
-              />
-              <div
-                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/70 via-transparent to-[#0a0a0a]/20"
-                aria-hidden="true"
+                className="aspect-[4/5] w-full object-cover"
               />
             </figure>
           </motion.div>
