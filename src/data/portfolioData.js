@@ -54,8 +54,8 @@ export const portfolioData = {
       offClock: ["homelab", "Home Assistant", "F1", "gimnasio", "paseos", "Thor"],
       catNote: "Thor supervisa el laboratorio. No le impresionan tus tiempos de compilación.",
       paragraphs: [
-        "Soy ingeniero de software y me muevo entre capas: del firmware de un microcontrolador al backend y al frontend desde el que se monitoriza todo. Ahora trabajo en Indra, donde mi proyecto es NECS, la red nacional de radares de tráfico del Reino Unido, un sistema crítico que opera 24/7. Por mi cuenta también experimento con APIs de LLMs y con el Model Context Protocol (MCP).",
-        "Antes pasé un año en la Universidad de Alcalá investigando cómo comprimir y desplegar modelos CNN de detección y reidentificación de personas en hardware tan limitado como un ESP32. Y en Moeve construí el software de control de un hangar de drones autónomos y automaticé de principio a fin una línea de procesamiento químico.",
+        "Soy ingeniero de software y me muevo entre capas: del firmware de un microcontrolador al backend y al frontend desde el que se monitoriza el sistema. Ahora trabajo en Indra, donde mi proyecto es NECS, la red nacional de radares de tráfico del Reino Unido. Es un sistema crítico y funciona 24/7. Por mi cuenta también experimento con APIs de LLMs y con el Model Context Protocol (MCP).",
+        "Antes pasé un año en la Universidad de Alcalá investigando cómo comprimir y desplegar modelos CNN de detección y reidentificación de personas en hardware tan limitado como un ESP32. Después, en Moeve, hice el software de control de un hangar de drones autónomos y automaticé una línea de procesamiento químico de principio a fin.",
         "Cuando desconecto, suelo estar trasteando con mi homelab, montando sensores para Home Assistant, viendo la Fórmula 1, en el gimnasio o dando un paseo para despejarme.",
       ],
     },
@@ -66,8 +66,8 @@ export const portfolioData = {
       offClock: ["homelab", "Home Assistant", "F1", "gym", "walks", "Thor"],
       catNote: "Thor supervises the lab. He is not impressed by your compile times.",
       paragraphs: [
-        "I'm a software engineer who works across layers, from microcontroller firmware to the backend and the frontend that monitors it all. I currently work at Indra, where my project is NECS, the UK's national traffic radar network, a safety-critical system that runs 24/7. On my own time I also experiment with LLM APIs and the Model Context Protocol (MCP).",
-        "Before that, at Universidad de Alcalá I spent a year researching how to deploy and compress CNN-based detection and re-identification models on hardware as constrained as an ESP32 microcontroller. And at Moeve I built the control software for an autonomous drone hangar and an industrial automation pipeline for a chemical processing line.",
+        "I'm a software engineer and I work across layers, from microcontroller firmware to the backend and the frontend that monitors the system. I work at Indra, where my project is NECS, the UK's national traffic radar network. It's a safety-critical system and it runs 24/7. On my own time I also experiment with LLM APIs and the Model Context Protocol (MCP).",
+        "Before that I spent a year at Universidad de Alcalá researching how to compress and deploy CNN-based person detection and re-identification models on hardware as limited as an ESP32. Then, at Moeve, I wrote the control software for an autonomous drone hangar and automated a chemical processing line from start to finish.",
         "When I switch off, I'm usually messing with my homelab, building sensors for Home Assistant, watching Formula 1, at the gym, or out for a walk to clear my head.",
       ],
     },
