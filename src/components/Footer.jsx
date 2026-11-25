@@ -65,7 +65,7 @@ export default function Footer() {
         <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-3">
           <div>
             <h3 className="mb-4 text-sm font-bold tracking-tight text-[#e5e5e5]">[AMS]</h3>
-            <p className="max-w-[260px] text-xs leading-relaxed text-[#7d7d7d]">{general.slogan}</p>
+            <p className="max-w-[260px] text-xs leading-relaxed text-[#909090]">{general.slogan}</p>
             <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.1em] text-[#6FD08C]">
               {footer.statusValue}
             </p>
@@ -95,7 +95,7 @@ export default function Footer() {
                 href={social.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border border-[#262626] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.08em] text-[#7d7d7d] transition-colors hover:border-[#525252] hover:text-[#e5e5e5]"
+                className="border border-[#262626] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.08em] text-[#909090] transition-colors hover:border-[#525252] hover:text-[#e5e5e5]"
                 aria-label="GitHub"
               >
                 GitHub
@@ -104,7 +104,7 @@ export default function Footer() {
                 href={social.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border border-[#262626] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.08em] text-[#7d7d7d] transition-colors hover:border-[#525252] hover:text-[#e5e5e5]"
+                className="border border-[#262626] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.08em] text-[#909090] transition-colors hover:border-[#525252] hover:text-[#e5e5e5]"
                 aria-label="LinkedIn"
               >
                 LinkedIn
@@ -113,7 +113,7 @@ export default function Footer() {
                 href={social.amstech}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border border-[#262626] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.08em] text-[#7d7d7d] transition-colors hover:border-[#525252] hover:text-[#e5e5e5]"
+                className="border border-[#262626] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.08em] text-[#909090] transition-colors hover:border-[#525252] hover:text-[#e5e5e5]"
                 aria-label="AMS Tech"
               >
                 amstech.dev ↗
@@ -122,7 +122,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col justify-between gap-3 border-t border-[#262626] pt-6 text-center font-mono text-[10px] uppercase tracking-[0.08em] text-[#7d7d7d] md:flex-row md:text-left">
+        <div className="mt-14 flex flex-col justify-between gap-3 border-t border-[#262626] pt-6 text-center font-mono text-[10px] uppercase tracking-[0.08em] text-[#909090] md:flex-row md:text-left">
           <p>
             © {new Date().getFullYear()} {general.name}
           </p>

@@ -22,7 +22,7 @@ export default function Education() {
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
           <div>
             <div className="mb-8">
-              <h3 className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#7d7d7d]">
+              <h3 className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#909090]">
                 {lang === 'es' ? 'Formación académica' : 'Academic background'}
               </h3>
               <div className="mt-3 h-px w-full bg-[#262626]" />
@@ -35,14 +35,14 @@ export default function Education() {
                   className="grid gap-3 border-t border-[#262626] py-6 first:border-t-0 sm:grid-cols-[96px_1fr] sm:gap-6"
                 >
                   <div>
-                    <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#7d7d7d]">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#909090]">
                       {item.period[lang]}
                     </p>
                   </div>
                   <div>
                     <h4 className="text-base font-semibold text-[#e5e5e5]">{item.degree[lang]}</h4>
                     <p className="mt-1 text-sm text-[#a3a3a3]">{item.institution}</p>
-                    <p className="mt-3 text-xs leading-relaxed text-[#858585]">
+                    <p className="mt-3 text-xs leading-relaxed text-[#9c9c9c]">
                       {item.description[lang]}
                     </p>
                   </div>
@@ -53,7 +53,7 @@ export default function Education() {
 
           <div>
             <div className="mb-8">
-              <h3 className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#7d7d7d]">
+              <h3 className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#909090]">
                 {certs[lang].title}
               </h3>
               <div className="mt-3 h-px w-full bg-[#262626]" />

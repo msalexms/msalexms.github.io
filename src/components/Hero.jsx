@@ -62,7 +62,7 @@ export default function Hero() {
 
             <motion.p
               {...fadeUp(0.4)}
-              className="mb-9 max-w-xl font-mono text-[12px] leading-relaxed text-[#7d7d7d] md:max-w-none"
+              className="mb-9 max-w-xl font-mono text-[12px] leading-relaxed text-[#909090] md:max-w-none"
             >
               {general.slogan}
             </motion.p>
@@ -90,7 +90,7 @@ export default function Hero() {
 
             <motion.div
               {...fadeUp(0.6)}
-              className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 font-mono text-[10px] uppercase tracking-[0.13em] text-[#7d7d7d] md:justify-start"
+              className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 font-mono text-[10px] uppercase tracking-[0.13em] text-[#909090] md:justify-start"
             >
               <a href={social.github} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-[#e5e5e5]">
                 GitHub ↗
@@ -125,7 +125,7 @@ export default function Hero() {
               <p className="font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-[#e5e5e5]">
                 {layer.label}
               </p>
-              <p className="mt-1 font-mono text-[10px] text-[#858585]">{layer.detail}</p>
+              <p className="mt-1 font-mono text-[10px] text-[#9c9c9c]">{layer.detail}</p>
             </div>
           ))}
         </div>

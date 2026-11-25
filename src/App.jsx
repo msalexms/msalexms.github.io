@@ -59,7 +59,7 @@ function DeferredAcademic() {
       >
         <Suspense
           fallback={
-            <div className="max-w-5xl mx-auto min-h-[820px] text-xs text-[#858585]">
+            <div className="max-w-5xl mx-auto min-h-[820px] text-xs text-[#9c9c9c]">
               {loadingText}
             </div>
           }

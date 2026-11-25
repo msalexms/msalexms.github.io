@@ -168,13 +168,13 @@ export default function CommandPalette() {
             onChange={(e) => setQ(e.target.value)}
             onKeyDown={onInputKey}
             placeholder={es ? 'escribe un comando…' : 'type a command…'}
-            className="flex-1 bg-transparent py-4 text-sm text-[#e5e5e5] placeholder-[#7d7d7d] outline-none"
+            className="flex-1 bg-transparent py-4 text-sm text-[#e5e5e5] placeholder-[#909090] outline-none"
           />
-          <kbd className="text-[10px] text-[#7d7d7d] border border-[#262626] px-1.5 py-0.5">esc</kbd>
+          <kbd className="text-[10px] text-[#909090] border border-[#262626] px-1.5 py-0.5">esc</kbd>
         </div>
         <ul className="max-h-[50vh] overflow-auto py-1">
           {list.length === 0 && (
-            <li className="px-4 py-6 text-xs text-[#7d7d7d]">{es ? 'sin resultados' : 'no results'}</li>
+            <li className="px-4 py-6 text-xs text-[#909090]">{es ? 'sin resultados' : 'no results'}</li>
           )}
           {list.map((c, i) => {
             const isCopiedItem = c.id === 'copy' && copied;
@@ -191,13 +191,13 @@ export default function CommandPalette() {
                   <span className={isCopiedItem ? 'text-[#6FD08C]' : undefined}>
                     {isCopiedItem ? (es ? '✓ Email copiado' : '✓ Email copied') : c.label}
                   </span>
-                  <span className="text-[10px] uppercase tracking-widest text-[#7d7d7d]">{c.g}</span>
+                  <span className="text-[10px] uppercase tracking-widest text-[#909090]">{c.g}</span>
                 </button>
               </li>
             );
           })}
         </ul>
-        <div className="flex gap-4 px-4 py-2 border-t border-[#262626] text-[10px] text-[#7d7d7d]">
+        <div className="flex gap-4 px-4 py-2 border-t border-[#262626] text-[10px] text-[#909090]">
           <span>↑↓ {es ? 'mover' : 'move'}</span>
           <span>↵ {es ? 'ejecutar' : 'run'}</span>
           <span>/ · Ctrl K</span>

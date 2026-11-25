@@ -62,7 +62,7 @@ export default function AcademicViewer() {
             className={`px-5 py-2 text-xs font-mono uppercase tracking-wider border transition-colors duration-200 ${
               activeDoc === d.id
                 ? 'bg-[#262626] text-[#e5e5e5] border-[#525252]'
-                : 'bg-[#171717] text-[#858585] border-[#262626] hover:text-[#e5e5e5] hover:border-[#525252]'
+                : 'bg-[#171717] text-[#9c9c9c] border-[#262626] hover:text-[#e5e5e5] hover:border-[#525252]'
             }`}
           >
             {d[lang].tabLabel}
@@ -154,7 +154,7 @@ export default function AcademicViewer() {
               <p className="text-sm font-medium mb-2 text-[#e5e5e5]">
                 {es ? 'No se pudo cargar el PDF' : 'The PDF could not be loaded'}
               </p>
-              <p className="text-xs text-[#858585] mb-4">
+              <p className="text-xs text-[#9c9c9c] mb-4">
                 {es ? 'Descárgalo para leerlo.' : 'Download it to read it.'}
               </p>
               <a

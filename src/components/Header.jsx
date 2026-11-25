@@ -91,7 +91,7 @@ export default function Header() {
 
           <button
             onClick={() => window.dispatchEvent(new Event('ams:palette'))}
-            className="text-[10px] tracking-widest text-[#858585] hover:text-[#e5e5e5] transition-colors border border-[#262626] px-2 py-1 hover:border-[#525252]"
+            className="text-[10px] tracking-widest text-[#9c9c9c] hover:text-[#e5e5e5] transition-colors border border-[#262626] px-2 py-1 hover:border-[#525252]"
             aria-label={es ? 'Abrir paleta de comandos' : 'Open command palette'}
           >
             Ctrl K

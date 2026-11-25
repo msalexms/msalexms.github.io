@@ -35,13 +35,13 @@ export default function Experience() {
               />
 
               <div>
-                <div className="flex flex-wrap items-center gap-2 font-mono text-[10px] uppercase tracking-[0.14em] text-[#7d7d7d]">
+                <div className="flex flex-wrap items-center gap-2 font-mono text-[10px] uppercase tracking-[0.14em] text-[#909090]">
                   <span>{item.period[lang]}</span>
                 </div>
                 <h3 className="mt-2.5 text-lg font-semibold tracking-tight text-[#e5e5e5]">
                   {item.company}
                 </h3>
-                <p className="mt-1 font-mono text-[10px] uppercase leading-[1.5] tracking-[0.1em] text-[#858585]">
+                <p className="mt-1 font-mono text-[10px] uppercase leading-[1.5] tracking-[0.1em] text-[#9c9c9c]">
                   {item.role[lang]}
                 </p>
                 {item.projectLink && (
@@ -49,7 +49,7 @@ export default function Experience() {
                     href={item.projectLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-3 inline-flex items-center gap-1 border-b border-[#262626] pb-0.5 font-mono text-[10px] uppercase tracking-[0.08em] text-[#858585] transition-colors hover:border-[#6FD08C] hover:text-[#6FD08C]"
+                    className="mt-3 inline-flex items-center gap-1 border-b border-[#262626] pb-0.5 font-mono text-[10px] uppercase tracking-[0.08em] text-[#9c9c9c] transition-colors hover:border-[#6FD08C] hover:text-[#6FD08C]"
                   >
                     NECS ↗
                   </a>
@@ -65,7 +65,7 @@ export default function Experience() {
                   {item.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="border border-[#262626] bg-[#111111] px-2 py-1 font-mono text-[10px] uppercase tracking-[0.07em] text-[#858585]"
+                      className="border border-[#262626] bg-[#111111] px-2 py-1 font-mono text-[10px] uppercase tracking-[0.07em] text-[#9c9c9c]"
                     >
                       {tech}
                     </span>

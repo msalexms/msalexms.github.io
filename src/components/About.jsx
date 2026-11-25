@@ -61,7 +61,7 @@ export default function About() {
             </div>
 
             <div className="mt-9">
-              <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#7d7d7d]">
+              <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#909090]">
                 {about.offClockTitle}
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
@@ -101,7 +101,7 @@ export default function About() {
                 </p>
               </div>
 
-              <div className="flex items-center justify-between gap-3 border-t border-[#262626] px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.12em] text-[#7d7d7d]">
+              <div className="flex items-center justify-between gap-3 border-t border-[#262626] px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.12em] text-[#909090]">
                 <button
                   type="button"
                   onClick={copyEmail}
@@ -114,7 +114,7 @@ export default function About() {
 
             <div className="mt-4 flex items-center gap-3 border border-[#262626] bg-[#0d0d0d] p-4">
               <ThorLogo size={32} />
-              <p className="font-mono text-[10px] uppercase leading-[1.6] tracking-[0.06em] text-[#858585]">
+              <p className="font-mono text-[10px] uppercase leading-[1.6] tracking-[0.06em] text-[#9c9c9c]">
                 {about.catNote}
               </p>
             </div>
