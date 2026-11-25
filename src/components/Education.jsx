@@ -59,27 +59,34 @@ export default function Education() {
               <div className="mt-3 h-px w-full bg-[#262626]" />
             </div>
 
-            <div className="flex flex-wrap justify-center gap-3 lg:justify-start">
-              {certs.badges.map((badge, index) => (
-                <div key={badge.id} className="flex flex-col items-center gap-3">
-                  <div className="w-[152px] overflow-hidden border border-[#262626] bg-white transition-colors duration-200 hover:border-[#525252]">
-                    <iframe
-                      src={`https://www.credly.com/embedded_badge/${badge.id}`}
-                      width="150"
-                      height="270"
-                      frameBorder="0"
-                      scrolling="no"
+            <ul className="grid grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+              {certs.badges.map((badge) => (
+                <li key={badge.id}>
+                  <a
+                    href={`https://www.credly.com/badges/${badge.id}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex h-full flex-col items-center gap-3 border border-[#262626] bg-[#0d0d0d] p-4 text-center transition-colors duration-200 hover:border-[#525252]"
+                  >
+                    <img
+                      src={badge.image}
+                      alt=""
+                      width="96"
+                      height="96"
                       loading="lazy"
-                      title={`Credly badge ${index + 1}`}
-                      className="mx-auto block"
+                      decoding="async"
+                      className="h-24 w-24 transition-transform duration-200 group-hover:scale-105"
                     />
-                  </div>
-                  <p className="max-w-[152px] text-center text-xs font-medium leading-tight text-[#a3a3a3]">
-                    {badge[lang].name}
-                  </p>
-                </div>
+                    <span className="text-xs font-medium leading-snug text-[#e5e5e5]">
+                      {badge[lang].name}
+                    </span>
+                    <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#8a8a8a]">
+                      {badge.issuer} · {lang === 'es' ? 'verificar' : 'verify'} ↗
+                    </span>
+                  </a>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
       </div>

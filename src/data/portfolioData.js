@@ -301,16 +301,22 @@ export const portfolioData = {
     badges: [
       {
         id: "cce9876a-df8b-46a8-88fb-17943f4452ba",
+        image: "/img/insignias/containers-kubernetes.png",
+        issuer: "IBM",
         es: { name: "Containers & Kubernetes Essentials" },
         en: { name: "Containers & Kubernetes Essentials" },
       },
       {
         id: "6ada6fe2-ad92-4607-ab80-40d8feb16ad7",
+        image: "/img/insignias/docker-essentials.png",
+        issuer: "IBM",
         es: { name: "Docker Essentials: A Developer Introduction" },
         en: { name: "Docker Essentials: A Developer Introduction" },
       },
       {
         id: "a55077f9-3dca-4e07-8548-16e5a100c020",
+        image: "/img/insignias/linux-unhatched.png",
+        issuer: "Cisco",
         es: { name: "Linux Unhatched" },
         en: { name: "Linux Unhatched" },
       },
