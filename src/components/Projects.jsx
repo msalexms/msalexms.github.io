@@ -39,10 +39,10 @@ export default function Projects() {
   const portalOrigin = isLg ? '76% 13%' : '50% 18%';
 
   // Entrada "portal": al llegar a la banda, un círculo de color nace desde Thor
-  // y se expande por completo antes de alcanzar el centro del viewport.
+  // y se expande poco a poco durante casi todo el scroll de entrada (de abajo del viewport hasta casi arriba).
   const ref = useRef(null);
   const reduced = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start 95%', 'start 48%'] });
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start 100%', 'start 8%'] });
   const clipPath = useTransform(
     scrollYProgress,
     [0, 1],
