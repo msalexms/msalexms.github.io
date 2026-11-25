@@ -55,11 +55,11 @@ function DeferredAcademic() {
   return (
     <section id="academic" className="py-24 px-6 bg-[#0a0a0a]">
       <Deferred
-        placeholder={<div className="max-w-5xl mx-auto min-h-[820px]" aria-hidden="true" />}
+        placeholder={<div className="max-w-6xl mx-auto min-h-[820px]" aria-hidden="true" />}
       >
         <Suspense
           fallback={
-            <div className="max-w-5xl mx-auto min-h-[820px] text-xs text-[#9c9c9c]">
+            <div className="max-w-6xl mx-auto min-h-[820px] text-xs text-[#9c9c9c]">
               {loadingText}
             </div>
           }

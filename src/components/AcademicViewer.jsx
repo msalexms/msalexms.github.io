@@ -51,7 +51,7 @@ export default function AcademicViewer() {
   const es = lang === 'es';
 
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="max-w-6xl mx-auto">
       <SectionHeading title={academic.sectionTitle[lang]} />
 
       <div className="flex gap-0 mb-6">
