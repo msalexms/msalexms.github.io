@@ -56,7 +56,7 @@ export const portfolioData = {
       paragraphs: [
         "Soy ingeniero de software y me muevo entre capas: del firmware de un microcontrolador al backend y al frontend desde el que se monitoriza todo. Ahora trabajo en Indra, donde mi proyecto es NECS, la red nacional de radares de tráfico del Reino Unido, un sistema crítico que opera 24/7. Por mi cuenta también experimento con APIs de LLMs y con el Model Context Protocol (MCP).",
         "Antes pasé un año en la Universidad de Alcalá investigando cómo comprimir y desplegar modelos CNN de detección y reidentificación de personas en hardware tan limitado como un ESP32. Y en Moeve construí el software de control de un hangar de drones autónomos y automaticé de principio a fin una línea de procesamiento químico.",
-        "Cuando desconecto, me encontrarás con mi homelab, montando sensores para Home Assistant, siguiendo la Fórmula 1, en el gimnasio o dando un paseo para despejarme.",
+        "Cuando desconecto, suelo estar trasteando con mi homelab, montando sensores para Home Assistant, viendo la Fórmula 1, en el gimnasio o dando un paseo para despejarme.",
       ],
     },
     en: {
@@ -68,7 +68,7 @@ export const portfolioData = {
       paragraphs: [
         "I'm a software engineer who works across layers, from microcontroller firmware to the backend and the frontend that monitors it all. I currently work at Indra, where my project is NECS, the UK's national traffic radar network, a safety-critical system that runs 24/7. On my own time I also experiment with LLM APIs and the Model Context Protocol (MCP).",
         "Before that, at Universidad de Alcalá I spent a year researching how to deploy and compress CNN-based detection and re-identification models on hardware as constrained as an ESP32 microcontroller. And at Moeve I built the control software for an autonomous drone hangar and an industrial automation pipeline for a chemical processing line.",
-        "When I switch off, you will find me with my homelab, building sensors for Home Assistant, following Formula 1, at the gym, or out for a walk to clear my head.",
+        "When I switch off, I'm usually messing with my homelab, building sensors for Home Assistant, watching Formula 1, at the gym, or out for a walk to clear my head.",
       ],
     },
   },
@@ -78,42 +78,42 @@ export const portfolioData = {
     en: { title: "Work experience" },
     items: [
       {
-        role: { es: "Ingeniero de Software", en: "Software Engineer" },
+        role: { es: "Ingeniero de software", en: "Software Engineer" },
         company: "Indra",
         period: { es: "May 2025 – Presente", en: "May 2025 – Present" },
         description: {
-          es: "Mi proyecto es NECS, la red nacional de radares del Reino Unido, un sistema que opera 24/7. Me encargo del backend en Java y Spring Boot que conecta los componentes del sistema con servicios cloud y on-premise, de los componentes de visión artificial que leen las cámaras de los pórticos de carretera y detectan señales de velocidad variable en tiempo real, y del frontend en Angular para infracciones, alertas y configuración de cámaras.",
-          en: "My project is NECS, the UK's National Enforcement Camera Solution, a radar network that runs 24/7. My work spans the Java and Spring Boot backend that connects system components with cloud and on-premise services, the computer vision components that read gantry cameras and detect variable speed signs in real time, and the Angular frontend for infractions, alerts, and camera configuration.",
+          es: "Mi proyecto es NECS, la red nacional de radares del Reino Unido, un sistema que opera 24/7. Me encargo del backend en Java y Spring Boot, que conecta los componentes del sistema con servicios cloud y on-premise. También de los componentes de visión artificial que leen las cámaras de los pórticos de carretera y detectan señales de velocidad variable en tiempo real, y del frontend en Angular para infracciones, alertas y configuración de cámaras.",
+          en: "My project is NECS, the UK's National Enforcement Camera Solution, a radar network that runs 24/7. I handle the Java and Spring Boot backend that connects system components with cloud and on-premise services. I also work on the computer vision components that read gantry cameras and detect variable speed signs in real time, and on the Angular frontend for violations, alerts, and camera configuration.",
         },
         technologies: ["Java", "Spring Boot", "Angular", "C++", "OpenCV", "Computer Vision", "Linux"],
       },
       {
-        role: { es: "Ingeniero IoT Junior", en: "IoT Junior Engineer" },
+        role: { es: "Ingeniero IoT junior", en: "IoT Junior Engineer" },
         company: "Moeve (Innovation Center)",
         period: { es: "Sep 2024 – Mar 2025", en: "Sep 2024 – Mar 2025" },
         description: {
-          es: "Desarrollé el software de control de un hangar de drones autónomos: un backend en Python, ejecutado en una placa SBC, que funciona como una máquina de estados tolerante a fallos e integra protocolos industriales como MQTT, Modbus, RS-485 e I2C. Además, diseñé todo el flujo de automatización de una línea de procesamiento químico con Node-RED e InfluxDB, junto con paneles interactivos en Grafana que los operarios de la planta usan a diario.",
-          en: "Built the control software for an autonomous drone hangar: a fault-tolerant state machine managing the full operational lifecycle, from hardware handshakes to safe failure modes, integrating Modbus, RS-485, and I2C protocols into a single Python backend running on an embedded board. Also designed the automation pipeline for a chemical processing line, replacing manual monitoring with a visual control flow and a time-series database feeding Grafana dashboards used daily by plant operators.",
+          es: "Desarrollé el software de control de un hangar de drones autónomos: un backend en Python, ejecutado en una placa SBC, que funciona como una máquina de estados tolerante a fallos e integra protocolos industriales como MQTT, Modbus, RS-485 e I2C. También diseñé la automatización de una línea de procesamiento químico con Node-RED e InfluxDB, y los paneles de Grafana que los operarios de la planta usan a diario.",
+          en: "I built the control software for an autonomous drone hangar: a fault-tolerant state machine in a single Python backend on an embedded board, covering everything from hardware handshakes to safe failure modes, over MQTT, Modbus, RS-485, and I2C. I also designed the automation for a chemical processing line, replacing manual monitoring with a Node-RED flow and an InfluxDB database feeding Grafana dashboards that plant operators use daily.",
         },
         technologies: ["Python", "MQTT", "Modbus", "RS-485", "I2C", "Node-RED", "InfluxDB", "Grafana"],
       },
       {
-        role: { es: "Becario de Investigación – IA Aplicada a IoT", en: "AI Research Intern" },
+        role: { es: "Becario de investigación – IA aplicada a IoT", en: "AI Research Intern" },
         company: "Universidad de Alcalá",
         period: { es: "Oct 2023 – Jul 2024", en: "Oct 2023 – Jul 2024" },
         description: {
-          es: "Investigué y desplegué modelos CNN de detección de personas en distintas plataformas de hardware edge: ESP32-S3, Raspberry Pi 3 y NVIDIA Jetson Xavier NX, evaluando latencia de inferencia, consumo de memoria y precisión bajo restricciones de tiempo real. Trabajé con arquitecturas como YOLO, ResNet y MobileNet, y evalué y comparé 9 algoritmos de destilación de conocimiento de la librería KD_Lib para comprimir los modelos sin perder precisión. También integré OSNet para reidentificación de personas (ReID), lo que permitía mantener el seguimiento de identidades entre fotogramas de forma consistente. Construí sistemas de inferencia completos para cada dispositivo, con streaming de cámara en vivo y alertas por MQTT.",
-          en: "Researched and deployed CNN-based person detection models across different edge hardware: ESP32-S3, Raspberry Pi 3, and NVIDIA Jetson Xavier NX, benchmarking inference latency, memory footprint, and accuracy under real-time constraints. Worked with architectures including YOLO, ResNet, and MobileNet. Evaluated and benchmarked 9 knowledge distillation algorithms from the KD_Lib library to compress models without significant accuracy loss. Integrated OSNet for person Re-Identification (ReID), so identities stay consistent across camera frames. Built end-to-end inference systems per device with live camera streaming and MQTT-based detection alerts.",
+          es: "Investigué y desplegué modelos CNN de detección de personas en distintas plataformas de hardware edge: ESP32-S3, Raspberry Pi 3 y NVIDIA Jetson Xavier NX, evaluando latencia de inferencia, consumo de memoria y precisión bajo restricciones de tiempo real. Trabajé con arquitecturas como YOLO, ResNet y MobileNet, y comparé 9 algoritmos de destilación de conocimiento de la librería KD_Lib para comprimir los modelos sin perder mucha precisión. También integré OSNet para reidentificación de personas (ReID), de modo que cada persona conserva su identidad entre fotogramas. Construí sistemas de inferencia completos para cada dispositivo, con streaming de cámara en vivo y alertas por MQTT.",
+          en: "I researched and deployed CNN-based person detection models on different edge hardware: ESP32-S3, Raspberry Pi 3, and NVIDIA Jetson Xavier NX, measuring inference latency, memory use, and accuracy under real-time constraints. I worked with YOLO, ResNet, and MobileNet, and benchmarked 9 knowledge distillation algorithms from the KD_Lib library to compress the models without losing much accuracy. I also integrated OSNet for person re-identification (ReID), so each person keeps the same identity across camera frames. For each device I built a full inference system with live camera streaming and MQTT detection alerts.",
         },
         technologies: ["Python", "PyTorch", "OpenCV", "YOLO", "OSNet", "TensorFlow Lite", "NVIDIA Jetson", "Edge Impulse", "MQTT"],
       },
       {
-        role: { es: "Becario de Ingeniería de Software", en: "Software Engineering Intern" },
+        role: { es: "Becario de ingeniería de software", en: "Software Engineering Intern" },
         company: "Intelligent Data",
         period: { es: "Feb 2024 – May 2024", en: "Feb 2024 – May 2024" },
         description: {
-          es: "Desarrollé una aplicación Android en Java que se usaba en la línea de fabricación para ejecutar pruebas de validación de hardware en terminales de pago de la ONCE, garantizando que cada unidad pasara los controles de calidad antes de salir de fábrica. También colaboré en una app Android de teleasistencia para monitorizar en tiempo real a pacientes mayores en situación de riesgo.",
-          en: "Developed an Android application in Java used on the factory line to run hardware validation tests on payment terminals for ONCE, ensuring each unit passed quality checks before shipping. Also contributed to a teleassistance Android app for real-time monitoring of at-risk elderly patients.",
+          es: "Desarrollé una aplicación Android en Java que se usaba en la línea de fabricación para ejecutar pruebas de validación de hardware en terminales de pago de la ONCE y comprobar que cada unidad pasaba los controles de calidad antes de salir de fábrica. También colaboré en una app Android de teleasistencia para monitorizar en tiempo real a pacientes mayores en situación de riesgo.",
+          en: "I developed an Android app in Java that the factory line used to run hardware validation tests on payment terminals for ONCE, so each unit passed quality checks before shipping. I also contributed to a teleassistance Android app for real-time monitoring of at-risk elderly patients.",
         },
         technologies: ["Java", "Android", "IoT"],
       },
@@ -172,7 +172,7 @@ export const portfolioData = {
         lic: "MIT",
         description: {
           es: "Interfaz de terminal en Go para montar tu MOTD de Linux con 32 módulos en vivo, 7 temas, vista previa exacta y copias automáticas.",
-          en: "Lightweight Go terminal interface to build your Linux MOTD from 32 live modules, 7 themes, exact live preview, and automatic backups.",
+          en: "Go terminal interface to build your Linux MOTD from 32 live modules, 7 themes, exact live preview, and automatic backups.",
         },
         stack: "Go 1.25 · Bubble Tea · Linux · TUI",
         github: "https://github.com/msalexms/MoM",
@@ -216,7 +216,7 @@ export const portfolioData = {
         es: {
           tabLabel: "TFM",
           documentTitle: "Collaborative and Distributed DoS Detection in IoT Scenarios",
-          abstract: "La mayoría de las soluciones de seguridad para entornos IoT necesitan enviar el tráfico de red a un servidor centralizado para entrenar los modelos de detección, lo que supone un riesgo de privacidad y genera cuellos de botella. Mi TFM propone un sistema de aprendizaje federado en el que cada dispositivo edge entrena su propio modelo de forma local y solo comparte las actualizaciones de los pesos, sin que los datos en bruto salgan nunca del dispositivo. Usando el framework Flower y algoritmos como XGBoost, el sistema detecta ataques DDoS en tiempo real en redes IoT distribuidas, manteniendo la privacidad en todo momento. Calificación obtenida: 9/10.",
+          abstract: "La mayoría de las soluciones de seguridad para entornos IoT necesitan enviar el tráfico de red a un servidor centralizado para entrenar los modelos de detección, lo que supone un riesgo de privacidad y genera cuellos de botella. Mi TFM propone un sistema de aprendizaje federado en el que cada dispositivo edge entrena su propio modelo de forma local y solo comparte las actualizaciones de los pesos, sin que los datos en bruto salgan nunca del dispositivo. Usando el framework Flower y algoritmos como XGBoost, el sistema detecta ataques DDoS en tiempo real en redes IoT distribuidas sin centralizar nunca el tráfico sensible. Calificación obtenida: 9/10.",
           downloadLabel: "Descargar PDF",
         },
         en: {
@@ -232,7 +232,7 @@ export const portfolioData = {
         es: {
           tabLabel: "TFG",
           documentTitle: "Optimización de Modelos de IA mediante Destilación para Dispositivos Edge",
-          abstract: "Los modelos de visión artificial más avanzados suelen ser demasiado pesados para funcionar con fluidez en microcontroladores o placas SBC pequeñas. En este proyecto exploré la destilación del conocimiento (entrenar un modelo 'alumno' ligero para que imite el comportamiento de un modelo 'profesor' mucho más pesado) con el objetivo de lograr una inferencia de alta precisión en hardware como el ESP32, la Raspberry Pi o la Jetson. El resultado fue un sistema funcional de detección de personas que mejoraba hasta un 20% el rendimiento frente a los modelos comprimidos tradicionales. Calificación obtenida: 10/10.",
+          abstract: "Los modelos de visión artificial más avanzados suelen ser demasiado pesados para funcionar con fluidez en microcontroladores o placas SBC pequeñas. En este proyecto exploré la destilación del conocimiento (entrenar un modelo 'alumno' ligero para que imite el comportamiento de un modelo 'profesor' mucho más pesado) para conseguir una precisión cercana a la original en hardware como el ESP32, la Raspberry Pi o la Jetson. El resultado fue un sistema funcional de detección de personas que mejoraba hasta un 20% el rendimiento frente a los modelos comprimidos tradicionales. Calificación obtenida: 10/10.",
           downloadLabel: "Descargar PDF",
         },
         en: {
@@ -255,8 +255,8 @@ export const portfolioData = {
         institution: "Universidad de Alcalá",
         period: { es: "2020 – 2024", en: "2020 – 2024" },
         description: {
-          es: "Especialidad en Computación. Trabajo de Fin de Grado (TFG) calificado con Matrícula de Honor (10/10).",
-          en: "Specialization in Computing. Final project awarded with 10/10.",
+          es: "Especialidad en Computación. Trabajo de Fin de Grado (TFG) con Matrícula de Honor (10/10).",
+          en: "Specialization in Computing. Final project (TFG) graded 10/10.",
         },
       },
       {
@@ -264,8 +264,8 @@ export const portfolioData = {
         institution: "Universidad Politécnica de Madrid",
         period: { es: "2024 – 2025", en: "2024 – 2025" },
         description: {
-          es: "Formación avanzada centrada en sistemas embebidos, integración de sensores, protocolos de red IoT, arquitecturas de edge computing y aplicaciones de inteligencia artificial embebida. Trabajo de Fin de Máster (TFM) calificado con Sobresaliente (9/10).",
-          en: "Advanced training in embedded systems, sensor integration, IoT networking protocols, and edge computing architecture, including edge AI applications. Final project awarded with 9/10.",
+          es: "Máster centrado en sistemas embebidos, sensores, protocolos de red IoT, edge computing e IA embebida. Trabajo de Fin de Máster (TFM) con Sobresaliente (9/10).",
+          en: "Focused on embedded systems, sensors, IoT networking protocols, edge computing, and embedded AI. Final project (TFM) graded 9/10.",
         },
       },
     ],
