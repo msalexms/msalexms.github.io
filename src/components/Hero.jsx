@@ -2,7 +2,7 @@
  * Hero.jsx
  *
  * Sección de presentación estilo terminal/ASCII.
- * Retrato a la izquierda (se revela con el ratón) dentro de un marco tipo fichero, y presentación a la derecha.
+ * Retrato a la izquierda (se revela con el ratón) y presentación a la derecha.
  */
 
 import { motion } from 'framer-motion';
@@ -39,14 +39,7 @@ export default function Hero() {
             transition={{ delay: 0.1, duration: 0.4 }}
             className="order-2 mx-auto w-full max-w-[360px] md:order-1 md:mx-0"
           >
-            <figure className="overflow-hidden border border-[#262626] bg-[#0d0d0d] shadow-[0_0_70px_rgba(255,255,255,0.05)] transition-colors duration-300 hover:border-[#525252]">
-              <figcaption className="flex items-center justify-between border-b border-[#262626] px-3.5 py-2 font-mono text-[10px] uppercase tracking-[0.14em] text-[#909090]">
-                <span className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#6FD08C]" aria-hidden="true" />
-                  alejandro.jpg
-                </span>
-                <span>Madrid, ES</span>
-              </figcaption>
+            <figure className="overflow-hidden shadow-[0_0_70px_rgba(255,255,255,0.05)]">
               <RevealPortrait src="/img/perfil.jpg" alt={general.name} width={800} height={1000} />
             </figure>
           </motion.div>
