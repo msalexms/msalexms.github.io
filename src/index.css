@@ -71,6 +71,50 @@ section[id] {
   mask-image: radial-gradient(circle at 50% 30%, #000 0%, transparent 72%);
 }
 
+/* Aro de luz del ratón sobre la rejilla (Hero). Misma rejilla de 40px que .terminal-scanlines. */
+.grid-spotlight {
+  transition: opacity 0.35s ease;
+  --sx: 50%;
+  --sy: 40%;
+}
+
+.grid-spotlight__lines {
+  background-image:
+    linear-gradient(to right, rgba(150, 190, 255, 0.34) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(150, 190, 255, 0.34) 1px, transparent 1px);
+  background-size: 40px 40px;
+  -webkit-mask-image: radial-gradient(
+    circle at var(--sx) var(--sy),
+    rgba(0, 0, 0, 0.35) 0,
+    rgba(0, 0, 0, 0.3) 60px,
+    #000 92px,
+    rgba(0, 0, 0, 0.18) 135px,
+    transparent 190px
+  );
+  mask-image: radial-gradient(
+    circle at var(--sx) var(--sy),
+    rgba(0, 0, 0, 0.35) 0,
+    rgba(0, 0, 0, 0.3) 60px,
+    #000 92px,
+    rgba(0, 0, 0, 0.18) 135px,
+    transparent 190px
+  );
+}
+
+.grid-spotlight__ring {
+  position: absolute;
+  left: var(--sx);
+  top: var(--sy);
+  width: 184px;
+  height: 184px;
+  margin: -92px 0 0 -92px;
+  border-radius: 9999px;
+  border: 1px solid rgba(170, 200, 255, 0.28);
+  box-shadow:
+    0 0 28px rgba(120, 170, 255, 0.16),
+    inset 0 0 28px rgba(120, 170, 255, 0.08);
+}
+
 body {
   font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   -webkit-font-smoothing: antialiased;

@@ -10,6 +10,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { portfolioData } from '../data/portfolioData';
 import AsciiPortrait from './AsciiPortrait';
+import GridSpotlight from './GridSpotlight';
 
 export default function Hero() {
   const { lang } = useLanguage();
@@ -29,6 +30,7 @@ export default function Hero() {
       className="relative flex min-h-screen flex-col overflow-hidden bg-[#0a0a0a]"
     >
       <div className="terminal-scanlines pointer-events-none absolute inset-0" aria-hidden="true" />
+      <GridSpotlight />
 
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center px-6 pb-14 pt-28">
         <div className="grid items-center gap-12 md:grid-cols-[minmax(280px,360px)_1fr] md:gap-16">
