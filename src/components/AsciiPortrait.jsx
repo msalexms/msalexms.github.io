@@ -180,17 +180,18 @@ export default function AsciiPortrait({
     if (!state.glitchBlocks) {
       state.glitchBlocks = [];
     }
-    if (Math.random() < 0.1) {
+    // Ráfagas breves y poco frecuentes: la cara se lee casi siempre
+    if (Math.random() < 0.012) {
       state.glitchBlocks.push({
         y: Math.floor(Math.random() * rows),
-        h: Math.floor(Math.random() * 8) + 2,
-        offset: (Math.random() - 0.5) * 40,
+        h: Math.floor(Math.random() * 3) + 1,
+        offset: (Math.random() - 0.5) * 20,
         life: 1,
       });
     }
 
     state.glitchBlocks = state.glitchBlocks.filter((b) => {
-      b.life -= 0.02;
+      b.life -= 0.09;
       return b.life > 0;
     });
 
@@ -211,7 +212,7 @@ export default function AsciiPortrait({
           ctx.fillStyle = `rgb(${cell.r},${cell.g},${cell.b})`;
           ctx.fillRect(x * fontW + offsetX, y * fontH, fontW, fontH);
         } else {
-          ctx.fillStyle = `rgba(${cell.r},${cell.g},${cell.b},0.4)`;
+          ctx.fillStyle = `rgba(${cell.r},${cell.g},${cell.b},0.85)`;
           ctx.font = `${fontW}px monospace`;
           ctx.textBaseline = 'top';
           ctx.fillText(cell.char, x * fontW, y * fontH);
