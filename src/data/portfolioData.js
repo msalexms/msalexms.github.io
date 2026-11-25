@@ -81,7 +81,6 @@ export const portfolioData = {
         role: { es: "Ingeniero de Software", en: "Software Engineer" },
         company: "Indra",
         period: { es: "May 2025 – Presente", en: "May 2025 – Present" },
-        projectLink: "https://www.indracompany.com/en/mobile-fixed-radars",
         description: {
           es: "Trabajo en NECS, la red nacional de radares del Reino Unido, un sistema que opera 24/7. Me encargo del backend en Java y Spring Boot que conecta los componentes del sistema con servicios cloud y on-premise, de los componentes de visión artificial que leen las cámaras de los pórticos de carretera y detectan señales de velocidad variable en tiempo real, y del frontend en Angular para infracciones, alertas y configuración de cámaras.",
           en: "I work on NECS, the UK's National Enforcement Camera Solution, a radar network that runs 24/7. My work spans the Java and Spring Boot backend that connects system components with cloud and on-premise services, the computer vision components that read gantry cameras and detect variable speed signs in real time, and the Angular frontend for infractions, alerts, and camera configuration.",

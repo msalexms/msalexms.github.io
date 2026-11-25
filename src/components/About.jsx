@@ -16,10 +16,10 @@ export default function About() {
 
   return (
     <section id="about" className="bg-[#111111] px-6 py-24">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-[720px]">
         <SectionHeading title={about.title} />
 
-        <div className="max-w-[720px]">
+        <div>
           <p className="text-xl leading-relaxed text-[#e5e5e5] md:text-2xl">{about.lead}</p>
 
           <div className="mt-8 space-y-5 text-[15px] leading-[1.75] text-[#b8b8b8]">

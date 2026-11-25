@@ -44,16 +44,6 @@ export default function Experience() {
                 <p className="mt-1 font-mono text-[10px] uppercase leading-[1.5] tracking-[0.1em] text-[#9c9c9c]">
                   {item.role[lang]}
                 </p>
-                {item.projectLink && (
-                  <a
-                    href={item.projectLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-3 inline-flex items-center gap-1 border-b border-[#262626] pb-0.5 font-mono text-[10px] uppercase tracking-[0.08em] text-[#9c9c9c] transition-colors hover:border-[#6FD08C] hover:text-[#6FD08C]"
-                  >
-                    NECS ↗
-                  </a>
-                )}
               </div>
 
               <div>
