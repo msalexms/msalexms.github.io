@@ -1,8 +1,8 @@
 /**
  * About.jsx
  *
- * Sección Sobre Mí — estética terminal.
- * Relato a la izquierda; ficha de sistema y vida fuera del trabajo a la derecha.
+ * Sección Sobre Mí.
+ * Relato a la izquierda; ficha de perfil (rol, foco, base, contacto) a la derecha.
  */
 
 import { useEffect, useRef, useState } from 'react';
@@ -11,21 +11,10 @@ import { portfolioData } from '../data/portfolioData';
 import SectionHeading from './SectionHeading';
 import { ThorLogo } from './AmsEmblems';
 
-function TerminalLine({ command, children, color = 'text-[#a3a3a3]' }) {
-  return (
-    <div>
-      <p className="text-[#6FD08C]">
-        <span className="text-[#525252]">$ </span>
-        {command}
-      </p>
-      <p className={color}>{children}</p>
-    </div>
-  );
-}
-
 export default function About() {
   const { lang } = useLanguage();
   const about = portfolioData.about[lang];
+  const card = about.card;
   const general = portfolioData.general[lang];
   const [copied, setCopied] = useState(false);
   const timer = useRef(null);
@@ -77,48 +66,74 @@ export default function About() {
             </div>
           </div>
 
-          <div className="lg:sticky lg:top-24">
+          <aside className="lg:sticky lg:top-24">
             <div className="border border-[#262626] bg-[#0d0d0d]">
-              <div className="space-y-4 px-5 py-5 font-mono text-[11px] leading-[1.7]">
-                <TerminalLine command="whoami" color="text-[#e5e5e5]">
-                  {about.terminal.whoami}
-                </TerminalLine>
-                <TerminalLine command="cat role.txt" color="text-[#7CC4FF]">
-                  {about.terminal.role}
-                </TerminalLine>
-                <TerminalLine command="cat focus.txt" color="text-[#B48CFF]">
-                  {about.terminal.focus}
-                </TerminalLine>
-                <TerminalLine command="cat location.txt" color="text-[#a3a3a3]">
-                  {about.terminal.base}
-                </TerminalLine>
-                <TerminalLine command="uptime" color="text-[#6FD08C]">
-                  {about.terminal.status}
-                </TerminalLine>
-                <p className="flex items-center gap-1.5 pt-1 text-[#6FD08C]">
-                  <span className="text-[#525252]">$</span>
-                  <span className="inline-block h-3 w-[7px] animate-pulse bg-[#FFE27A]" aria-hidden="true" />
-                </p>
+              <div className="flex items-center gap-2.5 border-b border-[#262626] px-5 py-3.5">
+                <span className="relative flex h-2 w-2 flex-none" aria-hidden="true">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#6FD08C] opacity-60" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-[#6FD08C]" />
+                </span>
+                <p className="text-[13px] text-[#d4d4d4]">{card.status}</p>
               </div>
 
-              <div className="flex items-center justify-between gap-3 border-t border-[#262626] px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.12em] text-[#909090]">
+              <dl className="divide-y divide-[#1c1c1c] px-5">
+                <div className="py-4">
+                  <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#909090]">
+                    {card.roleLabel}
+                  </dt>
+                  <dd className="mt-1.5 text-[15px] text-[#e5e5e5]">
+                    {card.role}
+                    <span className="text-[#909090]"> · </span>
+                    <span className="text-[#7CC4FF]">{card.company}</span>
+                  </dd>
+                </div>
+
+                <div className="py-4">
+                  <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#909090]">
+                    {card.focusLabel}
+                  </dt>
+                  <dd className="mt-2 flex flex-wrap gap-2">
+                    {card.focus.map((item) => (
+                      <span
+                        key={item}
+                        className="border border-[#2f2f2f] px-2.5 py-1 text-[12px] text-[#d4d4d4]"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </dd>
+                </div>
+
+                <div className="py-4">
+                  <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#909090]">
+                    {card.baseLabel}
+                  </dt>
+                  <dd className="mt-1.5 text-[15px] text-[#e5e5e5]">{card.base}</dd>
+                </div>
+              </dl>
+
+              <div className="flex items-center justify-between gap-3 border-t border-[#262626] px-5 py-3.5">
+                <a
+                  href={`mailto:${general.email}`}
+                  className="min-w-0 truncate text-[12px] text-[#a3a3a3] transition-colors hover:text-[#e5e5e5]"
+                >
+                  {general.email}
+                </a>
                 <button
                   type="button"
                   onClick={copyEmail}
-                  className="text-[#FFE27A] transition-colors hover:text-[#e5e5e5]"
+                  className="flex-none border border-[#262626] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-[#FFE27A] transition-colors hover:border-[#525252] hover:text-[#e5e5e5]"
                 >
                   {copied ? about.copied : about.copyEmail}
                 </button>
               </div>
             </div>
 
-            <div className="mt-4 flex items-center gap-3 border border-[#262626] bg-[#0d0d0d] p-4">
-              <ThorLogo size={32} />
-              <p className="font-mono text-[10px] uppercase leading-[1.6] tracking-[0.06em] text-[#9c9c9c]">
-                {about.catNote}
-              </p>
-            </div>
-          </div>
+            <p className="mt-4 flex items-center gap-3 px-1 text-[12px] leading-relaxed text-[#909090]">
+              <ThorLogo size={28} />
+              <span>{about.catNote}</span>
+            </p>
+          </aside>
         </div>
       </div>
     </section>
