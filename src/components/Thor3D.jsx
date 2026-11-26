@@ -286,6 +286,15 @@ export default function Thor3D() {
           <i className="thor3d-dot" style={{ background: '#FFE27A' }} aria-hidden="true" />
           fin-cli ↗
         </a>
+        <a
+          className="thor3d-chip thor3d-chip-5"
+          href="https://amstech.dev/projects/rtl-sdr-analyzer/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i className="thor3d-dot" style={{ background: '#7CC4FF' }} aria-hidden="true" />
+          rtl-sdr ↗
+        </a>
       </div>
     </div>
   );
