@@ -27,7 +27,7 @@ const banner = (es) =>
    [AMS]
    ┌──────────────────────────────┐
    │  if you're reading this,     │
-   │  we're the same kind.        │
+   │  we speak the same language. │
    └──────────────────────────────┘
 `;
 

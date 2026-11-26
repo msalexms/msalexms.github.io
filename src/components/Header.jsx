@@ -121,7 +121,7 @@ export default function Header() {
           aria-expanded={mobileOpen}
           aria-label={mobileOpen ? (es ? 'Cerrar menú' : 'Close menu') : (es ? 'Abrir menú' : 'Open menu')}
         >
-          {mobileOpen ? 'CLOSE' : 'MENU'}
+          {mobileOpen ? (es ? 'CERRAR' : 'CLOSE') : (es ? 'MENÚ' : 'MENU')}
         </button>
       </nav>
 

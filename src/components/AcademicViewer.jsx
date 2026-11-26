@@ -155,7 +155,7 @@ export default function AcademicViewer() {
                 {es ? 'No se pudo cargar el PDF' : 'The PDF could not be loaded'}
               </p>
               <p className="text-xs text-[#9c9c9c] mb-4">
-                {es ? 'Descárgalo para leerlo.' : 'Download it to read it.'}
+                {es ? 'Descárgalo para leerlo.' : 'Download the PDF to read it.'}
               </p>
               <a
                 href={doc.pdfPath}
