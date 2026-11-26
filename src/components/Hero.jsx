@@ -11,6 +11,11 @@ import { portfolioData } from '../data/portfolioData';
 import GridSpotlight from './GridSpotlight';
 import RevealPortrait from './RevealPortrait';
 
+const HERO_WORDS = {
+  es: ['HOLA', { doodle: 'glasses' }, '=)', { doodle: 'mustache' }, '¿CAFE?', { doodle: 'catEars' }, '> _'],
+  en: ['HELLO', { doodle: 'glasses' }, '=)', { doodle: 'mustache' }, 'COFFEE?', { doodle: 'catEars' }, '> _'],
+};
+
 export default function Hero() {
   const { lang } = useLanguage();
   const general = portfolioData.general[lang];
@@ -36,11 +41,19 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.1, duration: 0.4 }}
+            transition={{ duration: 0.2 }}
             className="order-2 mx-auto w-full max-w-[360px] md:order-1 md:mx-0"
           >
             <figure className="overflow-hidden shadow-[0_0_70px_rgba(255,255,255,0.05)]">
-              <RevealPortrait src="/img/perfil.jpg" alt={general.name} width={800} height={1000} />
+              <RevealPortrait
+                src="/img/perfil.jpg"
+                alt={general.name}
+                width={800}
+                height={1000}
+                autoIntro={false}
+                initialPeekMs={0}
+                idleWords={HERO_WORDS[lang]}
+              />
             </figure>
           </motion.div>
 
