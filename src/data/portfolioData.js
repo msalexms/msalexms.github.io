@@ -217,19 +217,23 @@ export const portfolioData = {
         site: "https://amstech.dev/proyectos/fin-cli/",
         shot: "/img/proyectos/fin-cli-preview.jpg",
       },
-    ],
-    // Herramientas de terminal, también en amstech.dev
-    tools: [
       {
-        title: "RTL-SDR Analyzer",
+        title: "rtl-sdr-analyzer",
+        emblem: "rf",
+        version: "v3.0.0b1",
+        lic: "MIT",
         description: {
-          es: "Analizador de espectro RF en tiempo real con FFT al vuelo y detección de interferencias.",
-          en: "Real-time RF spectrum analyzer with on-the-fly FFT and interference detection.",
+          es: "Analizador de espectro RF en tiempo real, detector adaptativo de señales, grabador IQ y barrido de banda ancha para RTL-SDR USB y rtl_tcp.",
+          en: "Real-time RF spectrum analyzer, adaptive signal detector, IQ recorder, and wideband sweeper for USB RTL-SDR dongles and rtl_tcp.",
         },
-        stack: "Python · DSP",
+        stack: "Python · FastAPI · DSP · WebSocket",
         github: "https://github.com/msalexms/rtl-sdr-analyzer",
+        site: "https://amstech.dev/projects/rtl-sdr-analyzer/",
+        shot: "/img/proyectos/rtl-sdr-analyzer-preview.jpg",
       },
     ],
+    // Herramientas de terminal, también en amstech.dev
+    tools: [],
   },
 
   academic: {

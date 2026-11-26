@@ -157,39 +157,41 @@ export default function Projects() {
         </div>
 
         {/* Más herramientas */}
-        <div className="mt-7">
-          <span className="block font-ams text-[11px] font-extrabold leading-[1.25] tracking-[0.09em] uppercase text-[#5A5670]">
-            {projects[lang].moreLabel}
-          </span>
-          <div className="mt-2.5 border-b-[1.5px] border-[#E9DFCB]">
-            {projects.tools.map((tool, index) => (
-              <div
-                key={tool.title}
-                className="ams-rise flex flex-col md:flex-row md:items-center md:justify-between gap-2 py-3 border-t-[1.5px] border-[#E9DFCB]"
-                style={{ animationDelay: `${0.2 + index * 0.08}s` }}
-              >
-                <div className="font-ams text-[14.5px] text-[#3B3850] min-w-0">
-                  <strong className="font-ams-brand text-[#1E1B2E]">{tool.title}</strong>
-                  {': '}
-                  {tool.description[lang]}
+        {projects.tools.length > 0 && (
+          <div className="mt-7">
+            <span className="block font-ams text-[11px] font-extrabold leading-[1.25] tracking-[0.09em] uppercase text-[#5A5670]">
+              {projects[lang].moreLabel}
+            </span>
+            <div className="mt-2.5 border-b-[1.5px] border-[#E9DFCB]">
+              {projects.tools.map((tool, index) => (
+                <div
+                  key={tool.title}
+                  className="ams-rise flex flex-col md:flex-row md:items-center md:justify-between gap-2 py-3 border-t-[1.5px] border-[#E9DFCB]"
+                  style={{ animationDelay: `${0.2 + index * 0.08}s` }}
+                >
+                  <div className="font-ams text-[14.5px] text-[#3B3850] min-w-0">
+                    <strong className="font-ams-brand text-[#1E1B2E]">{tool.title}</strong>
+                    {': '}
+                    {tool.description[lang]}
+                  </div>
+                  <div className="flex items-center gap-3 flex-none">
+                    <span className="font-ams-mono text-[12px] text-[#5A5670]">
+                      {tool.stack}
+                    </span>
+                    <a
+                      href={tool.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="ams-btn"
+                    >
+                      GitHub ↗
+                    </a>
+                  </div>
                 </div>
-                <div className="flex items-center gap-3 flex-none">
-                  <span className="font-ams-mono text-[12px] text-[#5A5670]">
-                    {tool.stack}
-                  </span>
-                  <a
-                    href={tool.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="ams-btn"
-                  >
-                    GitHub ↗
-                  </a>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Salida a la web completa */}
         <div className="mt-6">

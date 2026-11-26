@@ -88,8 +88,8 @@ function AmstechLinkPreview({ label, lang }) {
 
             <span className="mt-2 block font-ams text-[12px] leading-snug text-[#3B3850]">
               {lang === 'es'
-                ? 'LensPipe, CircuitBin, mom, fin-cli y más herramientas.'
-                : 'LensPipe, CircuitBin, mom, fin-cli, and more tools.'}
+                ? 'LensPipe, CircuitBin, mom, fin-cli, rtl-sdr-analyzer y más.'
+                : 'LensPipe, CircuitBin, mom, fin-cli, rtl-sdr-analyzer, and more.'}
             </span>
           </span>
         </a>

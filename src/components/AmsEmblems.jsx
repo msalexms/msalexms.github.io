@@ -89,6 +89,40 @@ export function TerminalEmblem({ size = 46 }) {
   );
 }
 
+/** Emblema de rtl-sdr-analyzer: osciloscopio RF con Thor y espectro. */
+export function RfEmblem({ size = 46 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 72 72" aria-hidden="true" style={{ flex: 'none' }}>
+      <path d="M16 4l11 10h18L56 4l5 15v13H11V19z" fill="#2B36D9" stroke="#1E1B2E" strokeWidth="3.2" strokeLinejoin="round" />
+      <circle cx="24" cy="18.5" r="2.5" fill="#FFFFFF" />
+      <circle cx="48" cy="18.5" r="2.5" fill="#FFFFFF" />
+      <rect x="5" y="23" width="62" height="42" rx="8" fill="#18181D" stroke="#1E1B2E" strokeWidth="3.2" />
+      <circle cx="14" cy="29.5" r="2" fill="#FF5C39" />
+      <circle cx="20.5" cy="29.5" r="2" fill="#FFE27A" />
+      <circle cx="27" cy="29.5" r="2" fill="#6FD08C" />
+      <line x1="9" y1="34" x2="63" y2="34" stroke="#3A3A45" strokeWidth="1.5" />
+      <line x1="11" y1="45" x2="61" y2="45" stroke="#2A2A35" strokeWidth="1" strokeDasharray="2 2" />
+      <line x1="36" y1="36" x2="36" y2="55" stroke="#2A2A35" strokeWidth="1" strokeDasharray="2 2" />
+      <path
+        d="M11 53 L17 52 L21 48 L24 52 L29 51 L33 49 L36 37 L39 49 L44 52 L48 44 L51 51 L56 52 L61 53"
+        fill="none"
+        stroke="#7CC4FF"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle cx="36" cy="37" r="2.3" fill="#FFE27A" stroke="#18181D" strokeWidth="1" />
+      <rect x="11" y="57" width="12" height="3.2" rx="1" fill="#2B36D9" />
+      <rect x="24" y="57" width="9" height="3.2" rx="1" fill="#6FD08C" />
+      <rect x="34" y="57" width="5" height="3.2" rx="1" fill="#FF5C39" />
+      <rect x="40" y="57" width="7" height="3.2" rx="1" fill="#7CC4FF" />
+      <rect x="48" y="57" width="13" height="3.2" rx="1" fill="#2B36D9" />
+      <rect x="2" y="39" width="8" height="12" rx="4" fill="#2B36D9" stroke="#1E1B2E" strokeWidth="2.8" />
+      <rect x="62" y="39" width="8" height="12" rx="4" fill="#2B36D9" stroke="#1E1B2E" strokeWidth="2.8" />
+    </svg>
+  );
+}
+
 /** Logo Thor: la cabeza de gato-terminal de AMS Tech con su prompt "> _". */
 export function ThorLogo({ size = 28, className = '' }) {
   return (
@@ -117,6 +151,7 @@ const EMBLEMS = {
   camera: CameraEmblem,
   chip: ChipEmblem,
   terminal: TerminalEmblem,
+  rf: RfEmblem,
 };
 
 export function ProjectEmblem({ kind, size = 46 }) {

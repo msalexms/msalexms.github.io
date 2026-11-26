@@ -393,6 +393,12 @@ body {
   transform: translate3d(calc(-10px * (var(--z) - 1)), calc(-8px * (var(--z) - 1)), calc(32px * var(--z)));
 }
 
+.thor3d-chip-5 {
+  bottom: -44px;
+  left: 50%;
+  transform: translate3d(-50%, calc(10px * (var(--z) - 1)), calc(32px * var(--z)));
+}
+
 @media (pointer: coarse) {
   .thor3d-stage {
     touch-action: pan-y;
@@ -433,6 +439,10 @@ body {
   .thor3d-chip-4 {
     top: 6px;
     left: -66px;
+  }
+  .thor3d-chip-5 {
+    bottom: -38px;
+    left: 50%;
   }
 }
 
