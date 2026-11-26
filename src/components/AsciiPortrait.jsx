@@ -2,8 +2,8 @@
  * AsciiPortrait.jsx
  *
  * Componente ASCII con múltiples efectos visuales seleccionables.
- * Los datos ASCII se generan en build time (src/data/asciiData.json)
- * para evitar incluir la foto real en el repositorio.
+ * Los datos ASCII se generan en build time y se sirven desde
+ * /data/asciiData.json para no incrustarlos en el bundle del JS.
  *
  * Efectos disponibles (prop 'effect'):
  *   'scan'    -> Línea de escaneo que revela la imagen
@@ -16,7 +16,6 @@
  */
 
 import { useRef, useEffect, useState, useCallback } from 'react';
-import asciiDataJson from '../data/asciiData.json';
 
 export default function AsciiPortrait({
   alt,
@@ -26,6 +25,7 @@ export default function AsciiPortrait({
 }) {
   const canvasRef = useRef(null);
   const [revealed, setRevealed] = useState(false);
+  const [asciiData, setAsciiData] = useState(null);
   const animRef = useRef(null);
   const stateRef = useRef({});
 
@@ -180,17 +180,18 @@ export default function AsciiPortrait({
     if (!state.glitchBlocks) {
       state.glitchBlocks = [];
     }
-    if (Math.random() < 0.1) {
+    // Ráfagas breves y poco frecuentes: la cara se lee casi siempre
+    if (Math.random() < 0.012) {
       state.glitchBlocks.push({
         y: Math.floor(Math.random() * rows),
-        h: Math.floor(Math.random() * 8) + 2,
-        offset: (Math.random() - 0.5) * 40,
+        h: Math.floor(Math.random() * 3) + 1,
+        offset: (Math.random() - 0.5) * 20,
         life: 1,
       });
     }
 
     state.glitchBlocks = state.glitchBlocks.filter((b) => {
-      b.life -= 0.02;
+      b.life -= 0.09;
       return b.life > 0;
     });
 
@@ -211,7 +212,7 @@ export default function AsciiPortrait({
           ctx.fillStyle = `rgb(${cell.r},${cell.g},${cell.b})`;
           ctx.fillRect(x * fontW + offsetX, y * fontH, fontW, fontH);
         } else {
-          ctx.fillStyle = `rgba(${cell.r},${cell.g},${cell.b},0.4)`;
+          ctx.fillStyle = `rgba(${cell.r},${cell.g},${cell.b},0.85)`;
           ctx.font = `${fontW}px monospace`;
           ctx.textBaseline = 'top';
           ctx.fillText(cell.char, x * fontW, y * fontH);
@@ -280,18 +281,44 @@ export default function AsciiPortrait({
     }
   }, [width, height]);
 
+  // Datos del retrato: se sirven como fichero estático, no en el bundle
+  useEffect(() => {
+    let cancelled = false;
+    fetch('/data/asciiData.json')
+      .then((res) => res.json())
+      .then((data) => {
+        if (!cancelled) setAsciiData(data);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas || !asciiData) return;
     const ctx = canvas.getContext('2d');
     canvas.width = width;
     canvas.height = height;
 
-    const data = asciiDataJson;
+    const data = asciiData;
     const state = stateRef.current;
 
+    // Sin animación si el usuario prefiere menos movimiento: retrato estático
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      drawAscii(ctx, data, 0, state);
+      return;
+    }
+
     let animId;
+    let inView = true;
     const loop = (time) => {
+      if (!inView || document.hidden) {
+        animId = requestAnimationFrame(loop);
+        return;
+      }
       if (!revealed) {
         switch (effect) {
           case 'scan':
@@ -318,9 +345,18 @@ export default function AsciiPortrait({
       animId = requestAnimationFrame(loop);
     };
 
+    // No gastar CPU/GPU dibujando el retrato cuando ya no se ve (o la pestaña está oculta)
+    const observer = new IntersectionObserver(([entry]) => {
+      inView = entry.isIntersecting;
+    });
+    observer.observe(canvas);
+
     animId = requestAnimationFrame(loop);
-    return () => cancelAnimationFrame(animId);
-  }, [effect, revealed, width, height, drawScan, drawDecode, drawStatic, drawGlitch, drawMatrix, drawAscii, drawPixelArt]);
+    return () => {
+      cancelAnimationFrame(animId);
+      observer.disconnect();
+    };
+  }, [effect, revealed, width, height, asciiData, drawScan, drawDecode, drawStatic, drawGlitch, drawMatrix, drawAscii, drawPixelArt]);
 
   const handleClick = () => {
     setRevealed((prev) => !prev);
@@ -328,8 +364,8 @@ export default function AsciiPortrait({
 
   return (
     <div
-      className="relative overflow-hidden cursor-pointer select-none"
-      style={{ width, height }}
+      className="relative mx-auto aspect-square w-full cursor-pointer select-none overflow-hidden"
+      style={{ maxWidth: width }}
       onClick={handleClick}
       role="img"
       aria-label={alt}
@@ -338,12 +374,6 @@ export default function AsciiPortrait({
         ref={canvasRef}
         style={{ width: '100%', height: '100%', display: 'block' }}
       />
-      {/* Indicador de interacción */}
-      <div className="absolute inset-x-0 bottom-0 z-10 flex justify-center opacity-100 hover:opacity-0 transition-opacity duration-300 pointer-events-none">
-        <span className="text-[10px] text-[#525252] bg-[#0a0a0a] px-2 py-1 border-t border-x border-[#262626]">
-          [ click to pixelate ]
-        </span>
-      </div>
     </div>
   );
 }

@@ -6,7 +6,7 @@ const ASCII_CHARS = '@%#*+=-:. ';
 
 async function generate() {
   const imagePath = path.resolve('public/perfil.jpeg');
-  const outputPath = path.resolve('src/data/asciiData.json');
+  const outputPath = path.resolve('public/data/asciiData.json');
 
   const image = await Jimp.read(imagePath);
   image.resize({ w: 80, h: 80 });
@@ -28,7 +28,6 @@ async function generate() {
       const charIndex = Math.floor((brightness / 255) * (ASCII_CHARS.length - 1));
       row.push({
         char: ASCII_CHARS[charIndex],
-        brightness,
         r,
         g,
         b,
@@ -39,7 +38,7 @@ async function generate() {
 
   const result = { asciiData, cols, rows };
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-  fs.writeFileSync(outputPath, JSON.stringify(result, null, 2));
+  fs.writeFileSync(outputPath, JSON.stringify(result));
   console.log(`ASCII data generated: ${outputPath}`);
 }
 

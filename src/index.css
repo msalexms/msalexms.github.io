@@ -2,22 +2,95 @@
  * index.css
  *
  * Tailwind CSS v4 + estilos globales.
- * Estética: OPENCODE retro/ASCII — oscuro, sobrio, monoespaciado.
+ * Estética base: retro/ASCII — oscuro, sobrio, monoespaciado.
+ * Banda "Proyectos": AMSTech UI (manual de marca v1.5), neobrutalista.
  */
 
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap');
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
+/* ---- JetBrains Mono (SIL OFL, ver /fonts/LICENCIA-jetbrains-mono.txt): alojada en la propia web, sin peticiones a Google ---- */
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-display: swap; font-weight: 400; src: url('/fonts/jetbrains-mono-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-display: swap; font-weight: 500; src: url('/fonts/jetbrains-mono-latin-500-normal.woff2') format('woff2'); }
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-display: swap; font-weight: 700; src: url('/fonts/jetbrains-mono-latin-700-normal.woff2') format('woff2'); }
+
+/* ---- Fuentes AMSTech (SIL OFL, ver /fonts/ams/LICENCIA-*.txt) ---- */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 800;
+  src: url('/fonts/ams/bricolage-grotesque-latin-ext-opsz-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD,U+20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 800;
+  src: url('/fonts/ams/bricolage-grotesque-latin-opsz-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face { font-family: 'Figtree'; font-style: normal; font-display: swap; font-weight: 400; src: url('/fonts/ams/figtree-latin-ext-400-normal.woff2') format('woff2'); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD,U+20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: 'Figtree'; font-style: normal; font-display: swap; font-weight: 400; src: url('/fonts/ams/figtree-latin-400-normal.woff2') format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Figtree'; font-style: normal; font-display: swap; font-weight: 500; src: url('/fonts/ams/figtree-latin-ext-500-normal.woff2') format('woff2'); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD,U+20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: 'Figtree'; font-style: normal; font-display: swap; font-weight: 500; src: url('/fonts/ams/figtree-latin-500-normal.woff2') format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Figtree'; font-style: normal; font-display: swap; font-weight: 600; src: url('/fonts/ams/figtree-latin-ext-600-normal.woff2') format('woff2'); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD,U+20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: 'Figtree'; font-style: normal; font-display: swap; font-weight: 600; src: url('/fonts/ams/figtree-latin-600-normal.woff2') format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Figtree'; font-style: normal; font-display: swap; font-weight: 700; src: url('/fonts/ams/figtree-latin-ext-700-normal.woff2') format('woff2'); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD,U+20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: 'Figtree'; font-style: normal; font-display: swap; font-weight: 700; src: url('/fonts/ams/figtree-latin-700-normal.woff2') format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Figtree'; font-style: normal; font-display: swap; font-weight: 800; src: url('/fonts/ams/figtree-latin-ext-800-normal.woff2') format('woff2'); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD,U+20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: 'Figtree'; font-style: normal; font-display: swap; font-weight: 800; src: url('/fonts/ams/figtree-latin-800-normal.woff2') format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'DM Mono'; font-style: normal; font-display: swap; font-weight: 400; src: url('/fonts/ams/dm-mono-latin-ext-400-normal.woff2') format('woff2'); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD,U+20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: 'DM Mono'; font-style: normal; font-display: swap; font-weight: 400; src: url('/fonts/ams/dm-mono-latin-400-normal.woff2') format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'DM Mono'; font-style: normal; font-display: swap; font-weight: 500; src: url('/fonts/ams/dm-mono-latin-ext-500-normal.woff2') format('woff2'); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD,U+20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: 'DM Mono'; font-style: normal; font-display: swap; font-weight: 500; src: url('/fonts/ams/dm-mono-latin-500-normal.woff2') format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
 
 @theme {
   --font-sans: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-ams-brand: 'Bricolage Grotesque', 'Figtree', system-ui, sans-serif;
+  --font-ams: 'Figtree', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-ams-mono: 'DM Mono', ui-monospace, 'Cascadia Code', Consolas, Menlo, monospace;
 }
 
 html {
   scroll-behavior: smooth;
   background-color: #0a0a0a;
+}
+
+section[id] {
+  scroll-margin-top: 72px;
+}
+
+.terminal-scanlines {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+  background-size: 40px 40px;
+  -webkit-mask-image: radial-gradient(circle at 50% 30%, #000 0%, transparent 72%);
+  mask-image: radial-gradient(circle at 50% 30%, #000 0%, transparent 72%);
+}
+
+/* Halo de luz blanca del ratón sobre la rejilla (Hero). Misma rejilla de 40px que .terminal-scanlines. */
+.grid-spotlight {
+  transition: opacity 0.4s ease;
+  --sx: 50%;
+  --sy: 40%;
+}
+
+/* Líneas de la rejilla, blancas, visibles solo dentro del halo */
+.grid-spotlight__lines {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.4) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 1px, transparent 1px);
+  background-size: 40px 40px;
+  -webkit-mask-image: radial-gradient(circle 240px at var(--sx) var(--sy), #000 0%, rgba(0, 0, 0, 0.55) 40%, transparent 100%);
+  mask-image: radial-gradient(circle 240px at var(--sx) var(--sy), #000 0%, rgba(0, 0, 0, 0.55) 40%, transparent 100%);
+}
+
+/* Resplandor blanco difuso, sin borde */
+.grid-spotlight__glow {
+  background: radial-gradient(circle 260px at var(--sx) var(--sy), rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.035) 45%, transparent 100%);
 }
 
 body {
@@ -50,4 +123,339 @@ body {
 ::selection {
   background-color: #525252;
   color: #e5e5e5;
+}
+
+/* ================= AMSTech UI ================= */
+/* Botones de la banda de proyectos (manual de marca v1.5). */
+
+.ams-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 6px;
+  border: 2px solid #1e1b2e;
+  background: #ffffff;
+  color: #1e1b2e;
+  font: 800 13px / 1 'Figtree', system-ui, sans-serif;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 2.5px 2.5px 0 #1e1b2e;
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease,
+    background 0.12s ease;
+}
+
+.ams-btn:hover {
+  transform: translate(-1px, -1px);
+}
+
+.ams-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.ams-btn--ink {
+  background: #1e1b2e;
+  color: #fff6e9;
+}
+
+.ams-btn--ink:hover {
+  background: #2a2742;
+}
+
+/* Entrada de la banda: solo transform (nunca opacity), el contenido siempre es visible */
+@keyframes ams-rise {
+  from {
+    transform: translateY(8px);
+  }
+  to {
+    transform: none;
+  }
+}
+
+.ams-rise {
+  animation: ams-rise 0.45s ease backwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ams-rise {
+    animation: none;
+  }
+}
+
+/* ---- Thor 3D interactivo (banda de proyectos) ---- */
+
+.thor3d-stage {
+  position: relative;
+  width: 396px;
+  max-width: 100%;
+  height: 252px;
+  display: grid;
+  place-items: center;
+  perspective: 760px;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  border-radius: 6px;
+}
+
+.thor3d-stage:active {
+  cursor: grabbing;
+}
+
+.thor3d-toggle {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  border-radius: 6px;
+  cursor: inherit;
+  outline: none;
+}
+
+.thor3d-toggle:focus-visible {
+  outline: 2px dashed #2b36d9;
+  outline-offset: 6px;
+}
+
+.thor3d-rig {
+  --z: 1;
+  --lx: 0px;
+  --ly: 0px;
+  position: relative;
+  z-index: 1;
+  width: 170px;
+  height: 164px;
+  pointer-events: none;
+  transform-style: preserve-3d;
+  transform: rotateX(9deg) rotateY(-15deg);
+  animation: thor3d-sway 6.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.thor3d-rig.is-hover {
+  animation: none;
+  transition: transform 0.14s ease-out;
+}
+
+.thor3d-rig.is-dragging {
+  animation: none;
+  transition: none;
+}
+
+.thor3d-rig.is-spring {
+  animation: none;
+  transition: transform 0.65s cubic-bezier(0.18, 1.55, 0.32, 1);
+}
+
+.thor3d-rig.is-exploded:not(.is-dragging):not(.is-hover):not(.is-spring) {
+  animation: thor3d-sway-wide 7s ease-in-out infinite;
+}
+
+@keyframes thor3d-sway {
+  0%,
+  100% {
+    transform: rotateX(9deg) rotateY(-15deg);
+  }
+  50% {
+    transform: rotateX(-7deg) rotateY(15deg);
+  }
+}
+
+@keyframes thor3d-sway-wide {
+  0%,
+  100% {
+    transform: rotateX(11deg) rotateY(-20deg);
+  }
+  50% {
+    transform: rotateX(-9deg) rotateY(20deg);
+  }
+}
+
+.thor3d-layer {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  transition: transform 0.48s cubic-bezier(0.18, 1.4, 0.32, 1);
+}
+
+.thor3d-rig.is-dragging .thor3d-layer,
+.thor3d-rig.is-dragging .thor3d-chip {
+  transition: none;
+}
+
+.thor3d-layer svg {
+  width: 164px;
+  height: 164px;
+  overflow: visible;
+}
+
+.thor3d-back {
+  transform: translateZ(calc(-38px * var(--z)));
+}
+
+.thor3d-wire {
+  transform: translateZ(calc(-14px * var(--z)));
+}
+
+.thor3d-body {
+  transform: translateZ(calc(18px * var(--z)));
+  filter: drop-shadow(0 14px 18px rgba(30, 27, 46, 0.2));
+}
+
+.thor3d-prompt {
+  transform: translate3d(var(--lx), var(--ly), calc(50px * var(--z)));
+  filter: drop-shadow(0 5px 8px rgba(30, 27, 46, 0.25));
+}
+
+.thor3d-under {
+  animation: thor3d-blink 1.05s steps(1) infinite;
+}
+
+@keyframes thor3d-blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  50.01%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.thor3d-chip {
+  position: absolute;
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: #ffffff;
+  border: 1.5px solid #1e1b2e;
+  box-shadow: 2px 2px 0 #1e1b2e;
+  color: #1e1b2e;
+  font: 500 11px / 1 'DM Mono', ui-monospace, monospace;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    transform 0.48s cubic-bezier(0.18, 1.4, 0.32, 1),
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.thor3d-chip:hover,
+.thor3d-chip:focus-visible {
+  background: #ffe27a;
+  outline: none;
+}
+
+.thor3d-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  border: 1.4px solid #1e1b2e;
+  display: inline-block;
+  flex: none;
+}
+
+.thor3d-chip-1 {
+  top: -26px;
+  right: -112px;
+  transform: translate3d(calc(10px * (var(--z) - 1)), calc(-8px * (var(--z) - 1)), calc(34px * var(--z)));
+}
+
+.thor3d-chip-2 {
+  bottom: -24px;
+  left: -118px;
+  transform: translate3d(calc(-10px * (var(--z) - 1)), calc(8px * (var(--z) - 1)), calc(28px * var(--z)));
+}
+
+.thor3d-chip-3 {
+  bottom: -14px;
+  right: -96px;
+  transform: translate3d(calc(10px * (var(--z) - 1)), calc(8px * (var(--z) - 1)), calc(38px * var(--z)));
+}
+
+.thor3d-chip-4 {
+  top: 6px;
+  left: -104px;
+  transform: translate3d(calc(-10px * (var(--z) - 1)), calc(-8px * (var(--z) - 1)), calc(32px * var(--z)));
+}
+
+@media (pointer: coarse) {
+  .thor3d-stage {
+    touch-action: pan-y;
+  }
+}
+
+@media (max-width: 480px) {
+  .thor3d-stage {
+    width: 100%;
+    max-width: 340px;
+    height: 218px;
+    touch-action: pan-y;
+  }
+  .thor3d-rig {
+    width: 132px;
+    height: 128px;
+  }
+  .thor3d-layer svg {
+    width: 128px;
+    height: 128px;
+  }
+  .thor3d-chip {
+    font-size: 10.5px;
+    padding: 4px 8px;
+  }
+  .thor3d-chip-1 {
+    top: -24px;
+    right: -72px;
+  }
+  .thor3d-chip-2 {
+    bottom: -24px;
+    left: -74px;
+  }
+  .thor3d-chip-3 {
+    bottom: -14px;
+    right: -64px;
+  }
+  .thor3d-chip-4 {
+    top: 6px;
+    left: -66px;
+  }
+}
+
+@media (max-width: 360px) {
+  .thor3d-chip-1 {
+    right: -58px;
+  }
+  .thor3d-chip-2 {
+    left: -60px;
+  }
+  .thor3d-chip-3 {
+    right: -52px;
+  }
+  .thor3d-chip-4 {
+    left: -54px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thor3d-rig {
+    animation: none;
+  }
+  .thor3d-under {
+    animation: none;
+  }
 }

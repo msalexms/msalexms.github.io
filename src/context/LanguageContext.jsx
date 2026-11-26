@@ -35,6 +35,7 @@ export function LanguageProvider({ children }) {
 
   useEffect(() => {
     localStorage.setItem('portfolio-lang', lang);
+    document.documentElement.lang = lang;
   }, [lang]);
 
   const toggleLang = () => {
@@ -42,7 +43,7 @@ export function LanguageProvider({ children }) {
   };
 
   return (
-    <LanguageContext.Provider value={{ lang, setLang, toggleLang }}>
+    <LanguageContext.Provider value={{ lang, toggleLang }}>
       {children}
     </LanguageContext.Provider>
   );

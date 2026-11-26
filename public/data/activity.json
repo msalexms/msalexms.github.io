@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-11-25T19:57:04.822Z",
+  "commits": [
+    {
+      "repo": "fin-cli",
+      "sha": "b6fa352",
+      "message": "feat: release v0.2.0 with AMSTech brand, rebuilt core, and key-free support",
+      "date": "2026-11-25T16:00:55Z",
+      "url": "https://github.com/msalexms/fin-cli/commit/b6fa3528e968e32ca89096a73b8acdb6508d3334"
+    },
+    {
+      "repo": "MoM",
+      "sha": "32a1ba9",
+      "message": "docs: rewrite READMEs for the AMSTech brand and add release docs",
+      "date": "2026-11-25T14:51:25Z",
+      "url": "https://github.com/msalexms/MoM/commit/32a1ba9b931632fcf2a8b53828404c62881b3b22"
+    },
+    {
+      "repo": "MoM",
+      "sha": "afe2276",
+      "message": "feat: bilingual interface, AMSTech theme and redesigned TUI",
+      "date": "2026-11-25T14:51:16Z",
+      "url": "https://github.com/msalexms/MoM/commit/afe22766415d8198c61ce84e5791c7c4e6518b2f"
+    },
+    {
+      "repo": "lenspipe",
+      "sha": "0f443a9",
+      "message": "Date the 1.0.0 changelog entry",
+      "date": "2026-11-25T08:42:31Z",
+      "url": "https://github.com/msalexms/lenspipe/commit/0f443a9c2f95bc87d0fff59c21a3cb4a0fc3feff"
+    },
+    {
+      "repo": "lenspipe",
+      "sha": "2aa9271",
+      "message": "Keep the banner GPL pill inside the card border",
+      "date": "2026-11-25T08:38:55Z",
+      "url": "https://github.com/msalexms/lenspipe/commit/2aa92710cb3021655f9ffda3e06e46c74b34a43b"
+    },
+    {
+      "repo": "circuitbin",
+      "sha": "8c864f6",
+      "message": "chore: la licencia pasa de MIT a GPLv3",
+      "date": "2026-11-25T08:28:37Z",
+      "url": "https://github.com/msalexms/circuitbin/commit/8c864f62e70110d6532e4e0018111fc57c4e35ac"
+    }
+  ]
+}

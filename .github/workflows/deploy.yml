@@ -6,6 +6,10 @@ on:
 
   workflow_dispatch:
 
+  # Reconstruye cada día para refrescar la actividad real de GitHub
+  schedule:
+    - cron: '17 5 * * *'
+
 permissions:
   contents: read
   pages: write
@@ -33,6 +37,8 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
