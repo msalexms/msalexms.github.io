@@ -70,6 +70,7 @@ export const portfolioData = {
       offClock: ["homelab", "Home Assistant", "IA", "F1", "gimnasio", "paseos", "Thor"],
       catNote: "Thor supervisa el laboratorio. No le impresionan tus tiempos de compilación.",
       catHint: "pasa el ratón por la foto",
+      catHintTouch: "pasa el dedo por la foto",
     },
     en: {
       title: "About me",
@@ -94,6 +95,7 @@ export const portfolioData = {
       offClock: ["homelab", "Home Assistant", "AI", "F1", "gym", "walks", "Thor"],
       catNote: "Thor supervises the lab. He is not impressed by your compile times.",
       catHint: "hover the photo",
+      catHintTouch: "swipe the photo",
     },
   },
 

@@ -12,54 +12,197 @@
  * el contenido es visible aunque el JS tarde o no haya animaciones.
  */
 
-import { useEffect, useRef, useState } from 'react';
-import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { portfolioData } from '../data/portfolioData';
 import { ProjectEmblem } from './AmsEmblems';
 import Thor3D from './Thor3D';
 import GitLog from './GitLog';
 
+function getOffsetWithin(el, ancestor) {
+  let x = 0;
+  let y = 0;
+  let cur = el;
+  while (cur && cur !== ancestor) {
+    x += cur.offsetLeft;
+    y += cur.offsetTop;
+    cur = cur.offsetParent;
+  }
+  if (cur === ancestor) return { x, y };
+  const elRect = el.getBoundingClientRect();
+  const ancRect = ancestor.getBoundingClientRect();
+  return { x: elRect.left - ancRect.left, y: elRect.top - ancRect.top };
+}
+
 export default function Projects() {
   const { lang } = useLanguage();
   const projects = portfolioData.projects;
   const social = portfolioData.social;
 
-  // Origen del "portal": coincide con Thor según el layout (arriba derecha en lg, centrado en móvil)
-  const [isLg, setIsLg] = useState(() =>
-    typeof window !== 'undefined' ? window.matchMedia('(min-width: 1024px)').matches : true
-  );
-  useEffect(() => {
-    const mq = window.matchMedia('(min-width: 1024px)');
-    const update = () => setIsLg(mq.matches);
-    update();
-    mq.addEventListener('change', update);
-    return () => mq.removeEventListener('change', update);
-  }, []);
-  const portalOrigin = isLg ? '76% 13%' : '50% 18%';
+  const sectionRef = useRef(null);
+  const thorWrapRef = useRef(null);
+  const curtainRef = useRef(null);
+  const pathRef = useRef(null);
 
-  // Entrada "portal": al llegar a la banda, un círculo de color nace desde Thor
-  // y se expande poco a poco durante casi todo el scroll de entrada (de abajo del viewport hasta casi arriba).
-  const ref = useRef(null);
-  const reduced = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start 100%', 'start 8%'] });
-  const clipPath = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [`circle(0% at ${portalOrigin})`, `circle(150% at ${portalOrigin})`]
+  const [reduced, setReduced] = useState(() =>
+    typeof window !== 'undefined'
+      ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      : false
   );
+
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const sync = () => setReduced(mq.matches);
+    sync();
+    mq.addEventListener('change', sync);
+    return () => mq.removeEventListener('change', sync);
+  }, []);
+
+  // Entrada "portal": cortina SVG del tamaño del viewport que abre un círculo
+  // centrado en Thor (en escritorio) o en la cabecera (en móvil) durante el scroll.
+  useLayoutEffect(() => {
+    if (reduced) return undefined;
+    const section = sectionRef.current;
+    const curtain = curtainRef.current;
+    const path = pathRef.current;
+    if (!section || !curtain || !path) return undefined;
+
+    let raf = 0;
+    let lastD = '';
+    let metrics = {
+      w: 0,
+      overlayH: 0,
+      cx: 0,
+      cy: 0,
+      maxR: 0,
+      isLg: true,
+    };
+
+    const update = () => {
+      raf = 0;
+      const { w, overlayH, cx, cy, maxR, isLg } = metrics;
+      if (w < 1 || overlayH < 1) return;
+
+      const vh = window.innerHeight || 700;
+      const startY = vh * (isLg ? 0.96 : 0.94);
+      const endY = vh * (isLg ? 0.14 : 0.16);
+      const span = Math.max(1, startY - endY);
+      const rectTop = section.getBoundingClientRect().top;
+      const p = Math.max(0, Math.min(1, (startY - rectTop) / span));
+
+      if (p >= 1) {
+        if (curtain.style.display !== 'none') {
+          curtain.style.display = 'none';
+        }
+        return;
+      }
+
+      if (curtain.style.display !== 'block') {
+        curtain.style.display = 'block';
+      }
+
+      const r = p * maxR;
+      let d;
+      if (r <= 0.5) {
+        d = `M0 0 H${w} V${overlayH} H0 Z`;
+      } else {
+        const rStr = r.toFixed(1);
+        const cyStr = cy.toFixed(1);
+        const x1 = (cx + r).toFixed(1);
+        const x2 = (cx - r).toFixed(1);
+        d = `M0 0 H${w} V${overlayH} H0 Z M${x1} ${cyStr} A${rStr} ${rStr} 0 1 0 ${x2} ${cyStr} A${rStr} ${rStr} 0 1 0 ${x1} ${cyStr} Z`;
+      }
+
+      if (d !== lastD) {
+        lastD = d;
+        path.setAttribute('d', d);
+      }
+    };
+
+    const scheduleUpdate = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+
+    const measure = () => {
+      const w = section.clientWidth;
+      const sectionH = section.scrollHeight;
+      const vh = window.innerHeight || 700;
+      if (w < 1 || sectionH < 1) return;
+
+      const isLg = window.matchMedia('(min-width: 1024px)').matches;
+      const thorWrap = thorWrapRef.current;
+      let thorCx = isLg ? w * 0.76 : w * 0.5;
+      let thorCy = isLg ? 200 : 110;
+      if (thorWrap) {
+        const off = getOffsetWithin(thorWrap, section);
+        if (thorWrap.offsetWidth > 0 && thorWrap.offsetHeight > 0) {
+          thorCx = off.x + thorWrap.offsetWidth / 2;
+          thorCy = off.y + thorWrap.offsetHeight / 2;
+        }
+      }
+
+      const cx = isLg ? thorCx : w / 2;
+      const cy = isLg ? thorCy : Math.min(thorCy, Math.round(w * 0.28));
+      const overlayH = Math.min(sectionH, Math.ceil(vh + 180));
+      const endY = vh * (isLg ? 0.14 : 0.16);
+      const visibleBottom = Math.min(sectionH, Math.ceil(vh - endY + 180));
+      const maxR =
+        Math.ceil(
+          Math.max(
+            Math.hypot(cx, cy),
+            Math.hypot(w - cx, cy),
+            Math.hypot(cx, visibleBottom - cy),
+            Math.hypot(w - cx, visibleBottom - cy)
+          )
+        ) + 24;
+
+      metrics = { w, overlayH, cx, cy, maxR, isLg };
+      curtain.style.height = `${overlayH}px`;
+      curtain.setAttribute('viewBox', `0 0 ${w} ${overlayH}`);
+      lastD = '';
+      update();
+    };
+
+    const onResize = () => {
+      measure();
+    };
+
+    let resizeObs = null;
+    if (typeof ResizeObserver !== 'undefined') {
+      resizeObs = new ResizeObserver(onResize);
+      resizeObs.observe(section);
+    }
+
+    measure();
+
+    window.addEventListener('scroll', scheduleUpdate, { passive: true });
+    window.addEventListener('resize', onResize, { passive: true });
+    window.visualViewport?.addEventListener('resize', onResize);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      resizeObs?.disconnect();
+      window.removeEventListener('scroll', scheduleUpdate);
+      window.removeEventListener('resize', onResize);
+      window.visualViewport?.removeEventListener('resize', onResize);
+    };
+  }, [reduced, lang]);
 
   return (
-    <motion.section
-      ref={ref}
+    <section
+      ref={sectionRef}
       id="projects"
-      className="relative overflow-hidden bg-[#FFFFFF] border-y-[3px] border-[#1E1B2E]"
+      className="relative isolate overflow-hidden bg-[#FFFFFF] border-b-[3px] border-[#1E1B2E]"
       style={{
         paddingTop: 'clamp(44px, 6.5vw, 80px)',
         paddingBottom: 'clamp(44px, 6.5vw, 80px)',
-        ...(reduced ? {} : { clipPath }),
       }}
     >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 z-10 h-[3px] bg-[#1E1B2E]"
+      />
+
       <div className="max-w-6xl mx-auto px-6">
         {/* Cabecera de la banda: texto + Thor 3D interactivo */}
         <div className="ams-rise mb-10 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-6 lg:gap-10 items-center">
@@ -80,7 +223,7 @@ export default function Projects() {
             </a>
           </div>
 
-          <div className="justify-self-center lg:justify-self-end lg:-my-4">
+          <div ref={thorWrapRef} className="justify-self-center lg:justify-self-end lg:-my-4">
             <Thor3D />
           </div>
         </div>
@@ -208,6 +351,17 @@ export default function Projects() {
         {/* Terminal de banda: commits reales (o la nota de siempre) */}
         <GitLog />
       </div>
-    </motion.section>
+
+      {!reduced && (
+        <svg
+          ref={curtainRef}
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 z-30 block w-full overflow-hidden"
+          preserveAspectRatio="none"
+        >
+          <path ref={pathRef} fill="#0a0a0a" fillRule="evenodd" />
+        </svg>
+      )}
+    </section>
   );
 }

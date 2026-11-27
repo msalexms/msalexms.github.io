@@ -6,7 +6,7 @@
  * derecha con ficha rápida y tarjeta interactiva de Thor.
  */
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { portfolioData } from '../data/portfolioData';
 import SectionHeading from './SectionHeading';
@@ -106,6 +106,19 @@ const THOR_WORDS = {
 export default function About() {
   const { lang } = useLanguage();
   const about = portfolioData.about[lang];
+  const [canHover, setCanHover] = useState(() =>
+    typeof window !== 'undefined'
+      ? window.matchMedia('(hover: hover) and (pointer: fine)').matches
+      : true
+  );
+
+  useEffect(() => {
+    const mq = window.matchMedia('(hover: hover) and (pointer: fine)');
+    const sync = () => setCanHover(mq.matches);
+    sync();
+    mq.addEventListener('change', sync);
+    return () => mq.removeEventListener('change', sync);
+  }, []);
 
   return (
     <section id="about" className="relative overflow-hidden bg-[#111111] px-6 py-20">
@@ -206,7 +219,7 @@ export default function About() {
                   <span>{about.catNote}</span>
                 </div>
                 <p className="pl-[32px] font-mono text-[10px] text-[#737373]">
-                  {about.catHint}
+                  {canHover ? about.catHint : about.catHintTouch}
                 </p>
               </div>
 
